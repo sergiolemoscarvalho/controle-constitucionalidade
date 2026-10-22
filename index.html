@@ -98,6 +98,17 @@ blockquote{margin:16px 0;padding:4px 0 4px 18px;border-left:3px solid var(--gold
 .q .exp b{color:var(--green)}
 .q.miss .exp b{color:var(--red)}
 .refs li{margin:6px 0}
+.ver{display:inline-flex;align-items:center;gap:6px;margin-top:10px;font-family:var(--f-mono);font-size:.75rem;color:var(--green);border:1px solid var(--green);border-radius:999px;padding:2px 10px;text-decoration:none}
+.news{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:flex-start;justify-content:space-between;background:var(--gold-soft);border-radius:8px;padding:12px 16px;margin:16px 0 0}
+.news p{margin:0;font-size:.95rem}.news ul{margin:6px 0 0;padding-left:18px;font-size:.92rem}
+.news button{font:inherit;font-size:.85rem;background:none;border:1px solid var(--gold);color:var(--gold);border-radius:6px;padding:5px 12px;cursor:pointer}
+.log{display:flex;flex-direction:column;gap:14px;margin-top:14px}
+.log article{border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:14px 18px}
+.log header{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline}
+.log h3{margin:0;font-size:1.15rem}
+.log time{font-family:var(--f-mono);font-size:.8rem;color:var(--muted)}
+.log .cur{font-family:var(--f-mono);font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;background:var(--green);color:var(--surface);border-radius:4px;padding:1px 6px}
+.log ul{margin:8px 0 0;padding-left:20px}.log li{margin:3px 0}
 :focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 @media (max-width:860px){
   .wrap{grid-template-columns:minmax(0,1fr);gap:0}
@@ -117,6 +128,7 @@ html{scroll-behavior:smooth}
 <div class="wrap">
 <nav class="toc" aria-label="Sumário">
   <div class="brand">Controle de Constitucionalidade<small>Material de estudo · Direito Constitucional</small></div>
+  <a class="ver" id="verBadge" href="#versoes">versão —</a>
   <div class="progress"><span id="progTxt">0 de 7 unidades estudadas</span><div class="bar"><i id="progBar"></i></div></div>
   <ol id="tocList">
     <li><a href="#teoria"><span>01</span>Teoria do controle</a></li>
@@ -128,6 +140,7 @@ html{scroll-behavior:smooth}
     <li><a href="#revisao"><span>07</span>Quadro de revisão</a></li>
     <li><a href="#simulado"><span>Q</span>Simulado · 30 questões</a></li>
     <li><a href="#referencias"><span>R</span>Referências</a></li>
+    <li><a href="#versoes"><span>V</span>Histórico de versões</a></li>
   </ol>
   <button class="theme" id="themeBtn" type="button">Alternar tema claro/escuro</button>
 </nav>
@@ -140,6 +153,7 @@ html{scroll-behavior:smooth}
   <ul class="route">
     <li><b>1</b>Por que controlar</li><li><b>2</b>Como os países controlam</li><li><b>3</b>Como o Brasil controla</li><li><b>4</b>Que vícios existem</li><li><b>5</b>Controle no caso concreto</li><li><b>6</b>Controle em tese</li>
   </ul>
+  <div class="news" id="news" hidden><div><p id="newsTitle"></p><ul id="newsList"></ul></div><button type="button" id="newsOk">Entendi</button></div>
 </header>
 
 <!-- ============ 01 TEORIA ============ -->
@@ -673,11 +687,46 @@ html{scroll-behavior:smooth}
   <li>ARABI, Walid. Slides das aulas de Controle de Constitucionalidade. Universidade FUMEC, 2º semestre de 2026.</li>
 </ul>
 </section>
+
+<!-- ============ VERSOES ============ -->
+<section class="unit" id="versoes">
+<div class="unit-head"><span class="num">V</span><h2>Histórico de versões</h2></div>
+<p>Cada correção do material ganha um número de versão. Ao abrir uma versão nova pela primeira vez, você vê um aviso no topo da página com o que mudou.</p>
+<div class="log" id="log"></div>
+</section>
 </main>
 </div>
 
 <script>
 (function(){
+  /* Controle de versão: adicione a nova versão NO TOPO da lista */
+  const VERSIONS=[
+    {v:"1.1",date:"2026-10-21",title:"Correções após auditoria jurídica",items:[
+      "Repercussão geral: só o STF decide se há repercussão geral; tribunais de origem processam e aplicam a tese (arts. 1.030 e 1.036 do CPC).",
+      "TCU e Súmula 347: incluída a posição do MS 25.888 AgR (2023), que reafirmou a súmula com limites.",
+      "Modulação no controle difuso: art. 27 da Lei 9.868 aplicado por analogia; incluído o art. 927, §3º, do CPC.",
+      "Alerta sobre efeitos: o concentrado brasileiro é, em regra, ex tunc, diferente da matriz austríaca.",
+      "Ressalvas sobre rigidez, recusa de aplicação de lei pelo Executivo e direito pré-constitucional.",
+      "Convenção de Haia: explicado o fundamento e indicado o Pacto de São José como exemplo seguro.",
+      "Simulado: questões 6, 7 e 13 atualizadas."]},
+    {v:"1.0",date:"2026-10-21",title:"Primeira versão",items:[
+      "Conteúdo das cinco aulas em sete unidades, com casos reais do STF.",
+      "Simulado com 30 questões comentadas e progresso salvo no navegador."]}
+  ];
+  const fmt=d=>d.split("-").reverse().join("/");
+  const cur=VERSIONS[0];
+  document.getElementById("verBadge").textContent="versão "+cur.v+" · "+fmt(cur.date);
+  document.getElementById("log").innerHTML=VERSIONS.map((x,i)=>'<article><header><h3>Versão '+x.v+'</h3><time datetime="'+x.date+'">'+fmt(x.date)+'</time>'+(i===0?'<span class="cur">atual</span>':'')+'</header><p><b>'+x.title+'</b></p><ul>'+x.items.map(t=>'<li>'+t+'</li>').join("")+'</ul></article>').join("");
+  let seen=null;try{seen=localStorage.getItem("cc_ver")}catch(e){}
+  if(seen&&seen!==cur.v){
+    const newer=VERSIONS.slice(0,Math.max(1,VERSIONS.findIndex(x=>x.v===seen)));
+    document.getElementById("newsTitle").innerHTML="<b>Material atualizado para a versão "+cur.v+".</b> O que mudou desde a sua última visita:";
+    document.getElementById("newsList").innerHTML=newer.flatMap(x=>x.items).map(t=>"<li>"+t+"</li>").join("");
+    document.getElementById("news").hidden=false;
+  }
+  try{if(!seen)localStorage.setItem("cc_ver",cur.v)}catch(e){}
+  document.getElementById("newsOk").addEventListener("click",()=>{document.getElementById("news").hidden=true;try{localStorage.setItem("cc_ver",cur.v)}catch(e){}});
+
   const store={get(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
 
   /* Tema */
