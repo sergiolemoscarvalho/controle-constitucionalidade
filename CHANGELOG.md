@@ -1,5 +1,9 @@
 # Histórico de versões
 
+## 1.5.1 — 22/10/2026
+Conferência com os slides.
+- Completados o detalhe do art. 225, §1º, III, na ADI 4218 AgR e a observação de que só o STF desencadeia a ampliação de efeitos no controle difuso.
+
 ## 1.5 — 21/10/2026
 Glossário.
 - Novo glossário com 37 siglas e abreviações e 23 expressões latinas e estrangeiras, com busca e filtro.
