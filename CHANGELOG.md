@@ -1,5 +1,9 @@
 # Histórico de versões
 
+## 1.5 — 21/10/2026
+Glossário.
+- Novo glossário com 37 siglas e abreviações e 23 expressões latinas e estrangeiras, com busca e filtro.
+
 ## 1.4 — 21/10/2026
 Ícone do site.
 - Incluído o favicon do material na aba do navegador e na tela inicial do celular.

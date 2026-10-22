@@ -113,6 +113,21 @@ blockquote{margin:16px 0;padding:4px 0 4px 18px;border-left:3px solid var(--gold
 .log time{font-family:var(--f-mono);font-size:.8rem;color:var(--muted)}
 .log .cur{font-family:var(--f-mono);font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;background:var(--green);color:var(--surface);border-radius:4px;padding:1px 6px}
 .log ul{margin:8px 0 0;padding-left:20px}.log li{margin:3px 0}
+.gtools{display:flex;flex-wrap:wrap;gap:12px 16px;align-items:flex-end;margin:16px 0 4px}
+.gsearch{display:flex;flex-direction:column;gap:4px;font-size:.8rem;color:var(--muted);flex:1 1 240px;min-width:0}
+.gsearch input{font:inherit;font-size:1rem;padding:8px 12px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--ink);width:100%}
+.gtabs{display:flex;flex-wrap:wrap;gap:6px}
+.gtabs button{font:inherit;font-size:.85rem;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.gtabs button.on{background:var(--green);border-color:var(--green);color:var(--surface)}
+.gcount{font-family:var(--f-mono);font-size:.8rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.glist{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px;margin:10px 0 0}
+.gl{min-width:0;border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:12px 14px}
+.gl dt{font-family:var(--f-mono);font-size:.92rem;color:var(--green);margin-bottom:4px;overflow-wrap:anywhere}
+.gl[data-cat=latim] dt{font-family:var(--f-display);font-style:italic;font-size:1.08rem}
+.gl dd{margin:0;font-size:.93rem}
+.gl dd b{display:block;font-weight:600}
+.gl[data-cat=latim] dd b{font-weight:400;font-size:.72rem;font-family:var(--f-mono);text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.gempty{color:var(--muted)}
 .credit{margin-top:18px;font-size:.8rem;color:var(--muted);line-height:1.5}
 .credit a{font-weight:600}
 footer.prod{margin-top:40px;padding-block:24px 8px;border-top:2px solid var(--ink);display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px 28px;font-size:.92rem}
@@ -149,6 +164,7 @@ html{scroll-behavior:smooth}
     <li><a href="#difuso"><span>05</span>Controle difuso</a></li>
     <li><a href="#concentrado"><span>06</span>Controle concentrado</a></li>
     <li><a href="#revisao"><span>07</span>Quadro de revisão</a></li>
+    <li><a href="#glossario"><span>G</span>Glossário</a></li>
     <li><a href="#simulado"><span>Q</span>Simulado · 30 questões</a></li>
     <li><a href="#referencias"><span>R</span>Referências</a></li>
     <li><a href="#versoes"><span>V</span>Histórico de versões</a></li>
@@ -658,6 +674,89 @@ html{scroll-behavior:smooth}
 <button class="mark" data-unit="revisao" type="button">Marcar unidade como estudada</button>
 </section>
 
+
+<!-- ============ GLOSSARIO ============ -->
+<section class="unit" id="glossario">
+<div class="unit-head"><span class="num">G</span><h2>Glossário</h2></div>
+<p>Siglas e expressões latinas ou estrangeiras usadas neste material, com o sentido em que aparecem no controle de constitucionalidade.</p>
+<div class="gtools">
+  <label class="gsearch" for="gQuery"><span>Buscar termo</span><input type="search" id="gQuery" placeholder="Ex.: erga omnes, ADPF, caput" autocomplete="off"></label>
+  <div class="gtabs" role="group" aria-label="Filtrar glossário">
+    <button type="button" class="on" data-f="all" id="gfAll">Todos</button>
+    <button type="button" data-f="sigla" id="gfSig">Siglas e abreviações</button>
+    <button type="button" data-f="latim" id="gfLat">Latim e estrangeiros</button>
+  </div>
+  <span class="gcount" id="gCount"></span>
+</div>
+<h3 class="gh" data-cat="sigla">Siglas e abreviações</h3>
+<dl class="glist">
+<div class="gl" data-cat="sigla"><dt>ACP</dt><dd><b>Ação civil pública</b> Ação coletiva da Lei 7.347/1985. Admite controle difuso incidental, mas não pode substituir a ADI (RE 411.156).</dd></div>
+<div class="gl" data-cat="sigla"><dt>ADC</dt><dd><b>Ação declaratória de constitucionalidade</b> Pede ao STF que declare lei ou ato normativo federal constitucional; exige controvérsia judicial relevante (art. 102, I, “a”, CF).</dd></div>
+<div class="gl" data-cat="sigla"><dt>ADI</dt><dd><b>Ação direta de inconstitucionalidade</b> Principal ação do controle concentrado contra lei ou ato normativo federal ou estadual (art. 102, I, “a”, CF; Lei 9.868/1999).</dd></div>
+<div class="gl" data-cat="sigla"><dt>ADO</dt><dd><b>Ação direta de inconstitucionalidade por omissão</b> Combate a inércia do Poder Público em regulamentar a Constituição (art. 103, §2º, CF; Lei 12.063/2009).</dd></div>
+<div class="gl" data-cat="sigla"><dt>ADPF</dt><dd><b>Arguição de descumprimento de preceito fundamental</b> Ação subsidiária para evitar ou reparar lesão a preceito fundamental; alcança lei municipal e direito anterior a 1988 (art. 102, §1º, CF; Lei 9.882/1999).</dd></div>
+<div class="gl" data-cat="sigla"><dt>AgR</dt><dd><b>Agravo regimental</b> Recurso contra decisão monocrática de ministro, julgado pelo órgão colegiado. Ex.: MS 25.888 AgR.</dd></div>
+<div class="gl" data-cat="sigla"><dt>AGU</dt><dd><b>Advocacia-Geral da União</b> No controle concentrado, o Advogado-Geral da União é citado para defender o ato impugnado (art. 103, §3º, CF).</dd></div>
+<div class="gl" data-cat="sigla"><dt>art. / § / inc. / al.</dt><dd><b>Artigo, parágrafo, inciso, alínea</b> Unidades de um texto normativo. Ex.: art. 102, I, “a”, CF lê-se “artigo 102, inciso I, alínea a”.</dd></div>
+<div class="gl" data-cat="sigla"><dt>CCJ</dt><dd><b>Comissão de Constituição, Justiça e Cidadania</b> Comissão das Casas Legislativas que faz controle político preventivo dos projetos.</dd></div>
+<div class="gl" data-cat="sigla"><dt>CE</dt><dd><b>Constituição Estadual</b> Parâmetro da representação de inconstitucionalidade perante o Tribunal de Justiça (art. 125, §2º, CF).</dd></div>
+<div class="gl" data-cat="sigla"><dt>CF, CF/88, CRFB/88</dt><dd><b>Constituição da República Federativa do Brasil de 1988</b> Parâmetro do controle de constitucionalidade no plano federal.</dd></div>
+<div class="gl" data-cat="sigla"><dt>CPC</dt><dd><b>Código de Processo Civil</b> Lei 13.105/2015. Regula o incidente de arguição de inconstitucionalidade (arts. 948 a 950) e a repercussão geral (art. 1.035).</dd></div>
+<div class="gl" data-cat="sigla"><dt>CPP</dt><dd><b>Código de Processo Penal</b> Decreto-Lei 3.689/1941. Seu art. 283 foi objeto das ADCs 43, 44 e 54.</dd></div>
+<div class="gl" data-cat="sigla"><dt>DJe / DOU</dt><dd><b>Diário da Justiça eletrônico / Diário Oficial da União</b> Veículos oficiais de publicação de decisões judiciais e de atos normativos.</dd></div>
+<div class="gl" data-cat="sigla"><dt>EC</dt><dd><b>Emenda constitucional</b> Alteração formal da Constituição, aprovada em dois turnos por 3/5 em cada Casa (art. 60, §2º, CF). Ex.: EC 45/2004.</dd></div>
+<div class="gl" data-cat="sigla"><dt>ED</dt><dd><b>Embargos de declaração</b> Recurso para sanar omissão, contradição, obscuridade ou erro material. Ex.: os embargos na ADI 2975.</dd></div>
+<div class="gl" data-cat="sigla"><dt>HC</dt><dd><b>Habeas corpus</b> Ação de proteção da liberdade de locomoção. O HC 82.959 é exemplo de controle difuso no STF.</dd></div>
+<div class="gl" data-cat="sigla"><dt>ICMS</dt><dd><b>Imposto sobre circulação de mercadorias e serviços</b> Tributo estadual; benefícios fiscais dependem de convênio entre os Estados (art. 155, §2º, XII, “g”, CF).</dd></div>
+<div class="gl" data-cat="sigla"><dt>j.</dt><dd><b>Julgado em</b> Indica a data do julgamento. Ex.: “j. 07/12/2020”.</dd></div>
+<div class="gl" data-cat="sigla"><dt>LC</dt><dd><b>Lei complementar</b> Exige maioria absoluta para aprovação (art. 69, CF). Ex.: LC 35/1979, a LOMAN.</dd></div>
+<div class="gl" data-cat="sigla"><dt>LOMAN</dt><dd><b>Lei Orgânica da Magistratura Nacional</b> LC 35/1979, que faz as vezes do Estatuto da Magistratura previsto no art. 93 da CF.</dd></div>
+<div class="gl" data-cat="sigla"><dt>MC</dt><dd><b>Medida cautelar</b> Decisão provisória antes do julgamento de mérito. Ex.: ADI 221-MC, ADI 855 MC.</dd></div>
+<div class="gl" data-cat="sigla"><dt>MI</dt><dd><b>Mandado de injunção</b> Remédio contra a falta de norma regulamentadora que inviabilize direitos (art. 5º, LXXI, CF). Ex.: MI 708, MI 4733.</dd></div>
+<div class="gl" data-cat="sigla"><dt>MP</dt><dd><b>Medida provisória · Ministério Público</b> Atenção ao contexto. Medida provisória: ato com força de lei do Presidente (art. 62, CF). Ministério Público: ouvido no incidente do art. 948 do CPC.</dd></div>
+<div class="gl" data-cat="sigla"><dt>MS</dt><dd><b>Mandado de segurança</b> Protege direito líquido e certo. Impetrado por parlamentar, permite o controle judicial preventivo (MS 32.033).</dd></div>
+<div class="gl" data-cat="sigla"><dt>OAB</dt><dd><b>Ordem dos Advogados do Brasil</b> Seu Conselho Federal é legitimado universal para o controle concentrado (art. 103, VII, CF).</dd></div>
+<div class="gl" data-cat="sigla"><dt>PEC</dt><dd><b>Proposta de emenda à Constituição</b> Projeto de emenda em tramitação; não pode ser deliberada se tender a abolir cláusula pétrea (art. 60, §4º, CF).</dd></div>
+<div class="gl" data-cat="sigla"><dt>PGR</dt><dd><b>Procurador-Geral da República</b> Legitimado universal (art. 103, VI, CF), único legitimado da ADI interventiva, e ouvido em todas as ações do STF (art. 103, §1º).</dd></div>
+<div class="gl" data-cat="sigla"><dt>QPC</dt><dd><b>Question prioritaire de constitutionnalité</b> Controle repressivo francês criado pela reforma de 2008 (art. 61-1 da Constituição francesa).</dd></div>
+<div class="gl" data-cat="sigla"><dt>RE</dt><dd><b>Recurso extraordinário</b> Leva ao STF causas decididas em única ou última instância que envolvam questão constitucional (art. 102, III, CF).</dd></div>
+<div class="gl" data-cat="sigla"><dt>Rel. Min.</dt><dd><b>Relator ministro</b> Ministro responsável por conduzir o processo e apresentar o voto condutor.</dd></div>
+<div class="gl" data-cat="sigla"><dt>RG / Tema</dt><dd><b>Repercussão geral</b> Requisito de admissibilidade do RE (art. 102, §3º, CF; art. 1.035, CPC). Cada questão recebe um número de Tema.</dd></div>
+<div class="gl" data-cat="sigla"><dt>SV</dt><dd><b>Súmula vinculante</b> Enunciado aprovado por 2/3 do STF, com efeito vinculante para o Judiciário e a Administração (art. 103-A, CF).</dd></div>
+<div class="gl" data-cat="sigla"><dt>STF</dt><dd><b>Supremo Tribunal Federal</b> Guardião da Constituição (art. 102, CF); concentra o controle abstrato em face da CF.</dd></div>
+<div class="gl" data-cat="sigla"><dt>TCU</dt><dd><b>Tribunal de Contas da União</b> Órgão de controle externo que auxilia o Congresso (art. 71, CF). Ver Súmula 347 e MS 25.888 AgR.</dd></div>
+<div class="gl" data-cat="sigla"><dt>TJ</dt><dd><b>Tribunal de Justiça</b> Tribunal estadual; julga a representação de inconstitucionalidade em face da Constituição Estadual.</dd></div>
+<div class="gl" data-cat="sigla"><dt>TRF</dt><dd><b>Tribunal Regional Federal</b> Tribunal da Justiça Federal de 2º grau. Ex.: o TRF da 1ª Região no RE 635.088 AgR.</dd></div>
+</dl>
+<h3 class="gh" data-cat="latim">Expressões latinas e estrangeiras</h3>
+<dl class="glist">
+<div class="gl" data-cat="latim"><dt>a posteriori</dt><dd><b><i>Latim</i></b> “A partir do que vem depois.” Controle repressivo, feito após a edição da norma.</dd></div>
+<div class="gl" data-cat="latim"><dt>a priori</dt><dd><b><i>Latim</i></b> “A partir do que vem antes.” Sinônimo de controle preventivo, durante a elaboração da norma.</dd></div>
+<div class="gl" data-cat="latim"><dt>amicus curiae (pl. amici curiae)</dt><dd><b><i>Latim</i></b> “Amigo da corte.” Terceiro que contribui com informações em processos de grande relevância (art. 7º, §2º, Lei 9.868/1999; art. 138, CPC).</dd></div>
+<div class="gl" data-cat="latim"><dt>caput</dt><dd><b><i>Latim</i></b> “Cabeça.” Enunciado principal de um artigo, antes dos parágrafos e incisos. Ex.: art. 137, caput, da Lei 8.112/1990.</dd></div>
+<div class="gl" data-cat="latim"><dt>Chief Justice</dt><dd><b><i>Inglês</i></b> Presidente da Suprema Corte dos EUA. John Marshall ocupava o cargo em Marbury v. Madison.</dd></div>
+<div class="gl" data-cat="latim"><dt>de ofício (ex officio)</dt><dd><b><i>Latim</i></b> “Por dever do cargo.” Atuação do juiz sem provocação das partes; ele pode reconhecer a inconstitucionalidade incidental de ofício.</dd></div>
+<div class="gl" data-cat="latim"><dt>discrímen</dt><dd><b><i>Latim</i></b> “Critério de diferenciação.” Fator que justifica, ou não, um tratamento desigual sob o princípio da isonomia.</dd></div>
+<div class="gl" data-cat="latim"><dt>erga omnes</dt><dd><b><i>Latim</i></b> “Contra todos.” A decisão produz efeitos para todos, não só para as partes.</dd></div>
+<div class="gl" data-cat="latim"><dt>ex nunc</dt><dd><b><i>Latim</i></b> “Desde agora.” Efeitos só para o futuro, sem retroagir.</dd></div>
+<div class="gl" data-cat="latim"><dt>ex tunc</dt><dd><b><i>Latim</i></b> “Desde então.” Efeitos retroativos à data de edição da norma. É a regra no Brasil, que adota a teoria da nulidade.</dd></div>
+<div class="gl" data-cat="latim"><dt>in abstracto</dt><dd><b><i>Latim</i></b> “Em abstrato.” Análise da norma em tese, sem caso concreto. Os slides grafam “in abstrato”; a forma latina é in abstracto.</dd></div>
+<div class="gl" data-cat="latim"><dt>in concreto</dt><dd><b><i>Latim</i></b> “No caso concreto.” Controle exercido no julgamento de uma lide real.</dd></div>
+<div class="gl" data-cat="latim"><dt>incidenter tantum</dt><dd><b><i>Latim</i></b> “Apenas incidentalmente.” A inconstitucionalidade é resolvida como questão prejudicial, e não como pedido.</dd></div>
+<div class="gl" data-cat="latim"><dt>inter partes</dt><dd><b><i>Latim</i></b> “Entre as partes.” A decisão vale apenas para quem participou do processo.</dd></div>
+<div class="gl" data-cat="latim"><dt>judicial review</dt><dd><b><i>Inglês</i></b> Revisão judicial: poder do Judiciário de invalidar leis contrárias à Constituição, firmado em Marbury v. Madison.</dd></div>
+<div class="gl" data-cat="latim"><dt>leading case</dt><dd><b><i>Inglês</i></b> Caso-paradigma que fixa um entendimento seguido depois. Ex.: ADI 2 para a não recepção.</dd></div>
+<div class="gl" data-cat="latim"><dt>midnight judges</dt><dd><b><i>Inglês</i></b> “Juízes da meia-noite.” Nomeados por John Adams no fim do mandato; Marbury era um deles.</dd></div>
+<div class="gl" data-cat="latim"><dt>pro futuro</dt><dd><b><i>Latim</i></b> “Para o futuro.” Modulação que faz a decisão valer a partir de data posterior ao julgamento.</dd></div>
+<div class="gl" data-cat="latim"><dt>quorum (quórum)</dt><dd><b><i>Latim</i></b> Número mínimo de membros para deliberar ou aprovar. Ex.: maioria absoluta do art. 97; 2/3 para modulação e para súmula vinculante.</dd></div>
+<div class="gl" data-cat="latim"><dt>ratio decidendi</dt><dd><b><i>Latim</i></b> “Razão de decidir.” Fundamento essencial que sustenta a decisão e se projeta como precedente.</dd></div>
+<div class="gl" data-cat="latim"><dt>sub judice</dt><dd><b><i>Latim</i></b> “Sob julgamento.” Questão ainda pendente de decisão.</dd></div>
+<div class="gl" data-cat="latim"><dt>thema decidendum</dt><dd><b><i>Latim</i></b> “Tema a ser decidido.” Questão central submetida ao tribunal; a ementa da ADI 4218 AgR usa a variante thema iudicandum.</dd></div>
+<div class="gl" data-cat="latim"><dt>writ of mandamus</dt><dd><b><i>Inglês</i></b> Ordem judicial que obriga uma autoridade a praticar um ato. Foi o pedido de Marbury à Suprema Corte.</dd></div>
+</dl>
+<p class="gempty" id="gEmpty" hidden>Nenhum termo encontrado. Tente outra grafia ou limpe a busca.</p>
+</section>
+
 <!-- ============ SIMULADO ============ -->
 <section class="unit" id="simulado">
 <div class="unit-head"><span class="num">Q</span><h2>Simulado: 30 questões</h2></div>
@@ -722,6 +821,8 @@ html{scroll-behavior:smooth}
 (function(){
   /* Controle de versão: adicione a nova versão NO TOPO da lista */
   const VERSIONS=[
+    {v:"1.5",date:"2026-10-21",title:"Glossário",items:[
+      "Novo glossário com 37 siglas e abreviações e 23 expressões latinas e estrangeiras, com busca e filtro."]},
     {v:"1.4",date:"2026-10-21",title:"Ícone do site",items:[
       "Incluído o favicon do material (balança, Constituição e lupa) na aba do navegador e na tela inicial do celular."]},
     {v:"1.3",date:"2026-10-21",title:"Créditos de produção",items:[
@@ -760,6 +861,20 @@ html{scroll-behavior:smooth}
   }
   try{if(!seen)localStorage.setItem("cc_ver",cur.v)}catch(e){}
   document.getElementById("newsOk").addEventListener("click",()=>{document.getElementById("news").hidden=true;try{localStorage.setItem("cc_ver",cur.v)}catch(e){}});
+
+  /* Glossário: busca e filtro */
+  (function(){
+    const q=document.getElementById("gQuery"),items=[...document.querySelectorAll(".gl")],heads=[...document.querySelectorAll(".gh")];
+    let f="all";const norm=t=>t.normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase();
+    function run(){const v=norm(q.value.trim());let n=0;
+      items.forEach(el=>{const ok=(f==="all"||el.dataset.cat===f)&&(!v||norm(el.textContent).includes(v));el.hidden=!ok;if(ok)n++});
+      heads.forEach(h=>{h.hidden=!items.some(el=>el.dataset.cat===h.dataset.cat&&!el.hidden)});
+      document.getElementById("gCount").textContent=n+" de "+items.length+" termos";
+      document.getElementById("gEmpty").hidden=n>0;}
+    q.addEventListener("input",run);
+    document.querySelectorAll(".gtabs button").forEach(b=>b.addEventListener("click",()=>{f=b.dataset.f;document.querySelectorAll(".gtabs button").forEach(x=>x.classList.toggle("on",x===b));run()}));
+    run();
+  })();
 
   const store={get(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
 
