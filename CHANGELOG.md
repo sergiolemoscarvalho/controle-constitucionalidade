@@ -1,5 +1,9 @@
 # Histórico de versões
 
+## 1.3 — 21/10/2026
+Créditos de produção.
+- Incluídas as informações de produção e o link da agência NeexFlow no sumário e no rodapé.
+
 ## 1.2 — 21/10/2026
 Revisão docente da segunda auditoria.
 - TCU: "político" aqui significa não jurisdicional; o TCU é órgão de controle externo (art. 71 da CF), não Poder político.
