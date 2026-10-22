@@ -1,5 +1,9 @@
 # Histórico de versões
 
+## 1.4 — 21/10/2026
+Ícone do site.
+- Incluído o favicon do material na aba do navegador e na tela inicial do celular.
+
 ## 1.3 — 21/10/2026
 Créditos de produção.
 - Incluídas as informações de produção e o link da agência NeexFlow no sumário e no rodapé.
