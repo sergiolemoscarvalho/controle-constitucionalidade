@@ -41,11 +41,11 @@ nav.toc{position:sticky;top:env(safe-area-inset-top,0px);align-self:start;max-he
 .bar{height:6px;background:var(--line);border-radius:3px;overflow:hidden;margin-top:6px}
 .bar i{display:block;height:100%;background:var(--green);width:0;transition:width .3s}
 .toc ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px}
-.toc a{display:flex;gap:10px;align-items:baseline;text-decoration:none;color:var(--ink);padding:6px 10px;border-radius:6px;font-size:.93rem}
-.toc a span{font-family:var(--f-mono);font-size:.72rem;color:var(--muted);min-width:22px}
-.toc a:hover{background:var(--green-soft)}
-.toc a.on{background:var(--green-soft);color:var(--green);font-weight:600}
-.toc a.done::after{content:"✓";margin-left:auto;color:var(--green);font-size:.8rem}
+.toc ol a{display:flex;gap:10px;align-items:baseline;text-decoration:none;color:var(--ink);padding:6px 10px;border-radius:6px;font-size:.93rem}
+.toc ol a span{font-family:var(--f-mono);font-size:.72rem;color:var(--muted);min-width:22px}
+.toc ol a:hover{background:var(--green-soft)}
+.toc ol a.on{background:var(--green-soft);color:var(--green);font-weight:600}
+.toc ol a.done::after{content:"✓";margin-left:auto;color:var(--green);font-size:.8rem}
 .theme{margin-top:18px;font:inherit;font-size:.82rem;background:none;border:1px solid var(--line);color:var(--muted);border-radius:6px;padding:6px 10px;cursor:pointer}
 main{min-width:0;padding-top:28px}
 header.hero{padding:28px 0 32px;border-bottom:2px solid var(--ink);margin-bottom:12px}
@@ -102,6 +102,10 @@ blockquote{margin:16px 0;padding:4px 0 4px 18px;border-left:3px solid var(--gold
 .q .exp b{color:var(--green)}
 .q.miss .exp b{color:var(--red)}
 .refs li{margin:6px 0}
+.org td{font-size:.86rem;text-align:center;vertical-align:middle}
+.org td:first-child{text-align:left;white-space:nowrap}
+.org td.top{background:var(--ink);color:var(--surface)}
+.org td.sup{background:var(--green-soft);color:var(--green)}
 .ver{display:inline-flex;align-items:center;gap:6px;margin-top:10px;font-family:var(--f-mono);font-size:.75rem;color:var(--green);border:1px solid var(--green);border-radius:999px;padding:2px 10px;text-decoration:none}
 .news{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:flex-start;justify-content:space-between;background:var(--gold-soft);border-radius:8px;padding:12px 16px;margin:16px 0 0}
 .news p{margin:0;font-size:.95rem}.news ul{margin:6px 0 0;padding-left:18px;font-size:.92rem}
@@ -140,8 +144,8 @@ footer.prod .agency{font-family:var(--f-display);font-size:1.2rem;font-weight:60
   .wrap{grid-template-columns:minmax(0,1fr);gap:0}
   nav.toc{position:static;max-height:none;padding-block:18px 0}
   .toc ol{flex-direction:row;flex-wrap:wrap;gap:6px}
-  .toc a{border:1px solid var(--line);padding:4px 10px;font-size:.85rem}
-  .toc a span{display:none}
+  .toc ol a{border:1px solid var(--line);padding:4px 10px;font-size:.85rem}
+  .toc ol a span{display:none}
   body{font-size:16px}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
@@ -155,17 +159,18 @@ html{scroll-behavior:smooth}
 <nav class="toc" aria-label="Sumário">
   <div class="brand">Controle de Constitucionalidade<small>Material de estudo · Direito Constitucional</small></div>
   <a class="ver" id="verBadge" href="#versoes">versão —</a>
-  <div class="progress"><span id="progTxt">0 de 7 unidades estudadas</span><div class="bar"><i id="progBar"></i></div></div>
+  <div class="progress"><span id="progTxt">0 de 8 unidades estudadas</span><div class="bar"><i id="progBar"></i></div></div>
   <ol id="tocList">
     <li><a href="#teoria"><span>01</span>Teoria do controle</a></li>
     <li><a href="#sistemas"><span>02</span>Sistemas e matrizes</a></li>
     <li><a href="#brasil"><span>03</span>Sistema brasileiro</a></li>
     <li><a href="#tipologia"><span>04</span>Tipologia da inconstitucionalidade</a></li>
-    <li><a href="#difuso"><span>05</span>Controle difuso</a></li>
-    <li><a href="#concentrado"><span>06</span>Controle concentrado</a></li>
-    <li><a href="#revisao"><span>07</span>Quadro de revisão</a></li>
+    <li><a href="#judiciario"><span>05</span>Poder Judiciário</a></li>
+    <li><a href="#difuso"><span>06</span>Controle difuso</a></li>
+    <li><a href="#concentrado"><span>07</span>Controle concentrado</a></li>
+    <li><a href="#revisao"><span>08</span>Quadro de revisão</a></li>
     <li><a href="#glossario"><span>G</span>Glossário</a></li>
-    <li><a href="#simulado"><span>Q</span>Simulado · 30 questões</a></li>
+    <li><a href="#simulado"><span>Q</span>Simulado · 81 questões</a></li>
     <li><a href="#referencias"><span>R</span>Referências</a></li>
     <li><a href="#versoes"><span>V</span>Histórico de versões</a></li>
   </ol>
@@ -177,9 +182,9 @@ html{scroll-behavior:smooth}
 <header class="hero">
   <div class="eyebrow">Bacharelado em Direito · Preparação para prova</div>
   <h1>Controle de Constitucionalidade no Brasil</h1>
-  <p class="lead">Todo o conteúdo das cinco aulas, organizado do fundamento teórico até as ações do controle concentrado, com dispositivos da CF/88 e do CPC, precedentes reais do STF e um simulado comentado ao final.</p>
+  <p class="lead">Todo o conteúdo das seis aulas, organizado do fundamento teórico até as ações do controle concentrado, passando pela estrutura do Poder Judiciário, com dispositivos da CF/88 e do CPC, precedentes reais do STF e um simulado comentado ao final.</p>
   <ul class="route">
-    <li><b>1</b>Por que controlar</li><li><b>2</b>Como os países controlam</li><li><b>3</b>Como o Brasil controla</li><li><b>4</b>Que vícios existem</li><li><b>5</b>Controle no caso concreto</li><li><b>6</b>Controle em tese</li>
+    <li><b>1</b>Por que controlar</li><li><b>2</b>Como os países controlam</li><li><b>3</b>Como o Brasil controla</li><li><b>4</b>Que vícios existem</li><li><b>5</b>Quem julga</li><li><b>6</b>Controle no caso concreto</li><li><b>7</b>Controle em tese</li>
   </ul>
   <div class="news" id="news" hidden><div><p id="newsTitle"></p><ul id="newsList"></ul></div><button type="button" id="newsOk">Entendi</button></div>
 </header>
@@ -517,9 +522,102 @@ html{scroll-behavior:smooth}
 <button class="mark" data-unit="tipologia" type="button">Marcar unidade como estudada</button>
 </section>
 
-<!-- ============ 05 DIFUSO ============ -->
+<!-- ============ 05 PODER JUDICIÁRIO ============ -->
+<section class="unit" id="judiciario">
+<div class="unit-head"><span class="num">05</span><h2>Poder Judiciário: funções, órgãos e garantias</h2></div>
+<p class="src">Aula: Poder Judiciário (Direitos Fundamentais e Poderes do Estado) · Organograma “Estrutura da Justiça no Brasil”</p>
+<p>Esta unidade vem antes do controle difuso porque é nela que se vê <b>quem</b> exerce o controle: todos os órgãos do Judiciário (difuso), o STF (concentrado em face da CF) e os Tribunais de Justiça (concentrado em face da Constituição Estadual).</p>
+
+<h3>Funções do Poder Judiciário</h3>
+<div class="grid">
+  <div><h4>Função típica: jurisdicional</h4><p>Jurisdição é a função pela qual o Estado substitui os titulares dos interesses em conflito para, imparcialmente, buscar a pacificação. Atua sempre por meio do processo: declarando o preceito por sentença de mérito ou realizando-o pela execução forçada (Lenza, <i>Direito Constitucional</i>, 27. ed., 2023, p. 763).</p></div>
+  <div><h4>Atípica legislativa</h4><p>Elaborar seus regimentos internos.</p></div>
+  <div><h4>Atípica executiva</h4><p>Organizar secretarias e serviços; conceder licenças e férias a magistrados e servidores.</p></div>
+</div>
+
+<h3>Órgãos do Poder Judiciário <span class="law">art. 92, CF</span></h3>
+<div class="tbl"><table>
+<tr><th>Inciso</th><th>Órgão</th></tr>
+<tr><td>I</td><td>Supremo Tribunal Federal (STF)</td></tr>
+<tr><td>I-A</td><td>Conselho Nacional de Justiça (CNJ)</td></tr>
+<tr><td>II</td><td>Superior Tribunal de Justiça (STJ)</td></tr>
+<tr><td>II-A</td><td>Tribunal Superior do Trabalho (TST)</td></tr>
+<tr><td>III</td><td>Tribunais Regionais Federais (TRFs) e Juízes Federais</td></tr>
+<tr><td>IV</td><td>Tribunais (TRTs) e Juízes do Trabalho</td></tr>
+<tr><td>V</td><td>Tribunais (TREs) e Juízes Eleitorais</td></tr>
+<tr><td>VI</td><td>Tribunais e Juízes Militares</td></tr>
+<tr><td>VII</td><td>Tribunais (TJs) e Juízes dos Estados, do Distrito Federal e Territórios</td></tr>
+</table></div>
+<p>A Constituição prevê ainda o <b>Tribunal Superior Eleitoral</b> como órgão da Justiça Eleitoral <span class="law">art. 118, I</span> e o <b>Superior Tribunal Militar</b> como órgão da Justiça Militar <span class="law">art. 122, I</span>.</p>
+<div class="ex box"><span class="k">Juizados Especiais <span class="law">art. 98, I, CF</span></span><p>No âmbito federal e estadual, providos por juízes togados, ou togados e leigos, competentes para conciliação, julgamento e execução de <b>causas cíveis de menor complexidade</b> e <b>infrações penais de menor potencial ofensivo</b>, pelos procedimentos oral e sumaríssimo. Admitem, nas hipóteses legais, a transação e o julgamento de recursos por <b>turmas de juízes de primeiro grau</b> (as turmas recursais).</p></div>
+<div class="warn box"><span class="k">CNJ: órgão do Judiciário sem jurisdição</span><p>O CNJ foi criado pela EC 45/2004. Compõe-se de <b>15 membros</b> com mandato de <b>2 anos</b>, admitida uma recondução, e é presidido pelo Presidente do STF <span class="law">art. 103-B, CF</span>, na redação da EC 61/2009. Na <b>ADI 3.367</b> (13/04/2005, Rel. Min. Cezar Peluso), o STF declarou constitucional sua criação: é órgão interno de controle <b>administrativo, financeiro e disciplinar</b>, de natureza meramente administrativa, sem função jurisdicional, e o STF não está sujeito ao seu controle. Por isso o CNJ não faz controle de constitucionalidade.</p></div>
+
+<h3>Estrutura da Justiça no Brasil</h3>
+<p>Reprodução do organograma da aula. Leia de baixo para cima: o processo começa no 1º grau, sobe ao 2º grau e pode chegar aos tribunais superiores e ao STF.</p>
+<div class="tbl"><table class="org">
+<tr><th>Grau</th><th>Justiça Estadual</th><th>Justiça Federal</th><th>Justiça Militar Estadual</th><th>Justiça do Trabalho</th><th>Justiça Eleitoral</th><th>Justiça Militar da União</th></tr>
+<tr><td><b>Cúpula</b></td><td colspan="6" class="top"><b>STF</b>: guarda da Constituição. O <b>CNJ</b> faz o controle administrativo do Judiciário, abaixo do STF.</td></tr>
+<tr><td><b>Superiores</b></td><td colspan="3" class="sup"><b>STJ</b> (uniformiza a lei federal para as Justiças estadual e federal)</td><td class="sup"><b>TST</b></td><td class="sup"><b>TSE</b></td><td class="sup"><b>STM</b></td></tr>
+<tr><td><b>2º grau</b></td><td>Tribunais de Justiça</td><td>Tribunais Regionais Federais</td><td>Tribunais de Justiça Militar (ou o próprio TJ)</td><td>Tribunais Regionais do Trabalho</td><td>Tribunais Regionais Eleitorais</td><td rowspan="2">Auditorias Militares da União (recurso direto ao STM)</td></tr>
+<tr><td><b>1º grau</b></td><td>Varas estaduais</td><td>Varas federais</td><td>Auditorias militares estaduais</td><td>Varas do Trabalho</td><td>Juízes e cartórios eleitorais</td></tr>
+<tr><td><b>Juizados</b></td><td>Juizados Especiais e Turmas Recursais (estaduais)</td><td>Juizados Especiais e Turmas Recursais (federais)</td><td colspan="4">—</td></tr>
+</table></div>
+<div class="tip box"><span class="k">Ligação com o controle de constitucionalidade</span><p>Qualquer juiz desse quadro pode afastar uma lei no caso concreto (controle difuso). Nos tribunais, a declaração exige a <b>reserva de plenário</b> <span class="law">art. 97</span>. A questão chega ao STF pelo recurso extraordinário <span class="law">art. 102, III</span>. O controle em tese em face da CF cabe só ao STF; em face da Constituição Estadual, ao TJ <span class="law">art. 125, §2º</span>.</p></div>
+
+<h3>Quinto constitucional <span class="law">art. 94, CF</span></h3>
+<p>Um quinto dos lugares dos <b>Tribunais Regionais Federais</b> e dos <b>Tribunais dos Estados, do DF e Territórios</b> é composto de:</p>
+<div class="grid">
+  <div><h4>Membros do Ministério Público</h4><p>Com mais de <b>dez anos de carreira</b>.</p></div>
+  <div><h4>Advogados</h4><p>De notório saber jurídico e reputação ilibada, com mais de <b>dez anos de efetiva atividade profissional</b>.</p></div>
+</div>
+<ol class="steps">
+  <li><div>Os órgãos de representação de cada classe indicam uma <b>lista sêxtupla</b>.</div></li>
+  <li><div>O tribunal forma uma <b>lista tríplice</b> e a envia ao Poder Executivo.</div></li>
+  <li><div>O Chefe do Executivo, nos <b>20 dias</b> seguintes, escolhe um dos três para nomeação.</div></li>
+</ol>
+<div class="ex box"><span class="k">Aplicação</span><p>Em um TJ, a lista vai ao Governador; em um TRF, ao Presidente da República. No STJ não há quinto, e sim um <b>terço</b> de vagas para advogados e membros do MP, alternadamente <span class="law">art. 104, parágrafo único, II</span>.</p></div>
+
+<h3>Garantias dos juízes <span class="law">art. 95, CF</span></h3>
+<div class="tbl"><table>
+<tr><th>Garantia</th><th>Conteúdo</th></tr>
+<tr><td><b>Vitaliciedade</b></td><td>No 1º grau, adquirida após <b>dois anos de exercício</b>. Nesse período, a perda do cargo depende de deliberação do tribunal a que o juiz está vinculado; nos demais casos, de <b>sentença judicial transitada em julgado</b>.</td></tr>
+<tr><td><b>Inamovibilidade</b></td><td>Salvo por motivo de interesse público, “na forma do art. 93, VIII”: decisão por voto da <b>maioria absoluta</b> do respectivo tribunal ou do CNJ, assegurada ampla defesa.</td></tr>
+<tr><td><b>Irredutibilidade de subsídio</b></td><td>Ressalvado o disposto nos arts. 37, X e XI, 39, §4º, 150, II, 153, III, e 153, §2º, I (teto, tributação e regime de subsídio).</td></tr>
+</table></div>
+<p class="src">O slide resume o inciso II com o conteúdo do art. 93, VIII, ao qual ele remete, e descreve o inciso III como “subsídio fixado em lei”; acima está o texto da Constituição.</p>
+<p>As garantias protegem a independência do juiz, e não a pessoa do magistrado. São elas que permitem ao juiz afastar a aplicação de uma lei inconstitucional sem temer represálias.</p>
+
+<h3>Composição e competências dos tribunais</h3>
+<div class="tbl"><table>
+<tr><th>Tribunal</th><th>Composição</th><th>Competências</th></tr>
+<tr><td><b>STF</b></td><td><span class="law">art. 101</span> 11 Ministros</td><td><span class="law">art. 102</span></td></tr>
+<tr><td><b>STJ</b></td><td><span class="law">art. 104</span> no mínimo 33 Ministros</td><td><span class="law">art. 105</span></td></tr>
+<tr><td><b>TRFs</b></td><td><span class="law">art. 107</span> no mínimo 7 juízes</td><td><span class="law">art. 108</span>; juízes federais: <span class="law">art. 109</span></td></tr>
+<tr><td><b>TST</b></td><td><span class="law">art. 111-A</span> 27 Ministros</td><td>TST: lei (<span class="law">art. 111-A, §1º</span>); Justiça do Trabalho: <span class="law">art. 114</span></td></tr>
+<tr><td><b>TSE</b></td><td><span class="law">art. 119</span> no mínimo 7 membros</td><td><span class="law">art. 121</span>, por lei complementar</td></tr>
+<tr><td><b>STM</b></td><td><span class="law">art. 123</span> 15 Ministros</td><td><span class="law">art. 124</span>: crimes militares definidos em lei</td></tr>
+<tr><td><b>TJs</b></td><td colspan="2">Constituição de cada Estado <span class="law">art. 125</span></td></tr>
+<tr><td><b>Justiça Militar estadual</b></td><td colspan="2">Lei estadual. Tribunal de Justiça Militar só nos Estados com efetivo militar <b>superior a 20 mil integrantes</b> <span class="law">art. 125, §3º</span>.</td></tr>
+</table></div>
+<div class="warn box"><span class="k">Correções ao slide (conferidas na Constituição)</span><p>O slide indica a composição do <b>TSE</b> no “art. 101” e a do <b>STM</b> no “art. 104”. Os dispositivos corretos são o <b>art. 119</b> (TSE: no mínimo sete membros, três dentre Ministros do STF, dois dentre Ministros do STJ e dois advogados nomeados pelo Presidente a partir de listas do STF) e o <b>art. 123</b> (STM: quinze Ministros vitalícios, sendo três oficiais-generais da Marinha, quatro do Exército, três da Aeronáutica e cinco civis). Os arts. 101 e 104 tratam do STF e do STJ.</p></div>
+<div class="chk box"><span class="k">Atualização · Emenda Constitucional nº 122, de 2022</span><p>A <b>EC nº 122, de 17 de maio de 2022</b>, elevou para <b>setenta anos</b> a idade máxima para nomeação nos tribunais abaixo. Cada dispositivo traz, no texto oficial da Constituição, a anotação “(Redação dada pela Emenda Constitucional nº 122, de 2022)”.</p></div>
+<div class="tbl"><table>
+<tr><th>Tribunal</th><th>Dispositivo da CF</th><th>Antes da EC 122</th><th>Depois da EC 122</th></tr>
+<tr><td>TCU</td><td><span class="law">art. 73, §1º, I</span></td><td>mais de 35 e menos de 65 anos</td><td>mais de 35 e menos de <b>70</b> anos</td></tr>
+<tr><td>STF</td><td><span class="law">art. 101, caput</span></td><td>mais de 35 e menos de 65 anos</td><td>mais de 35 e menos de <b>70</b> anos</td></tr>
+<tr><td>STJ</td><td><span class="law">art. 104, parágrafo único</span></td><td>mais de 35 e menos de 65 anos</td><td>mais de 35 e menos de <b>70</b> anos</td></tr>
+<tr><td>TRFs</td><td><span class="law">art. 107, caput</span></td><td>mais de <b>30</b> e menos de 65 anos</td><td>mais de 30 e menos de <b>70</b> anos</td></tr>
+<tr><td>TST</td><td><span class="law">art. 111-A, caput</span></td><td>mais de 35 e menos de 65 anos</td><td>mais de 35 e menos de <b>70</b> anos</td></tr>
+<tr><td>TRTs</td><td><span class="law">art. 115, caput</span></td><td>mais de <b>30</b> e menos de 65 anos</td><td>mais de 30 e menos de <b>70</b> anos</td></tr>
+<tr><td>STM (Ministros civis)</td><td><span class="law">art. 123, parágrafo único</span></td><td>maiores de 35 anos, <b>sem limite máximo</b></td><td>mais de 35 e menos de <b>70</b> anos</td></tr>
+</table></div>
+<div class="tip box"><span class="k">Atenção aos detalhes</span><p>Nos TRFs e nos TRTs a idade mínima é de <b>30</b> anos, e não 35. No STM, a EC 122 <b>criou</b> um limite máximo para os Ministros civis, que antes não existia.</p><p><b>Referências:</b> texto oficial da Constituição Federal compilado pela Presidência da República (Planalto), conferido em 26/10/2026; <a href="https://www2.camara.leg.br/legin/fed/emecon/2022/emendaconstitucional-122-17-maio-2022-792638-norma-pl.html" target="_blank" rel="noopener">EC nº 122/2022 na Legislação Informatizada da Câmara dos Deputados</a>; <a href="https://www12.senado.leg.br/noticias/audios/2022/05/promulgada-emenda-que-permite-indicacao-de-juristas-de-ate-70-anos-para-tribunais-superiores" target="_blank" rel="noopener">Agência Senado, 17/05/2022</a>.</p></div>
+<button class="mark" data-unit="judiciario" type="button">Marcar unidade como estudada</button>
+</section>
+
+<!-- ============ 06 DIFUSO ============ -->
 <section class="unit" id="difuso">
-<div class="unit-head"><span class="num">05</span><h2>Controle Difuso de Constitucionalidade</h2></div>
+<div class="unit-head"><span class="num">06</span><h2>Controle Difuso de Constitucionalidade</h2></div>
 <p class="src">Aula: Controles difuso e concentrado (1ª parte)</p>
 
 <h3>Conceito</h3>
@@ -614,7 +712,7 @@ html{scroll-behavior:smooth}
 
 <!-- ============ 06 CONCENTRADO ============ -->
 <section class="unit" id="concentrado">
-<div class="unit-head"><span class="num">06</span><h2>Controle Concentrado (Abstrato)</h2></div>
+<div class="unit-head"><span class="num">07</span><h2>Controle Concentrado (Abstrato)</h2></div>
 <p class="src">Aula: Controles difuso e concentrado (2ª parte)</p>
 
 <h3>Características</h3>
@@ -658,7 +756,7 @@ html{scroll-behavior:smooth}
 
 <!-- ============ 07 REVISAO ============ -->
 <section class="unit" id="revisao">
-<div class="unit-head"><span class="num">07</span><h2>Quadro de revisão: difuso × concentrado</h2></div>
+<div class="unit-head"><span class="num">08</span><h2>Quadro de revisão: difuso × concentrado</h2></div>
 <div class="tbl"><table>
 <tr><th>Critério</th><th>Difuso</th><th>Concentrado</th></tr>
 <tr><td>Matriz</td><td>Norte-americana</td><td>Austríaca</td></tr>
@@ -719,13 +817,18 @@ html{scroll-behavior:smooth}
 <div class="gl" data-cat="sigla"><dt>PEC</dt><dd><b>Proposta de emenda à Constituição</b> Projeto de emenda em tramitação; não pode ser deliberada se tender a abolir cláusula pétrea (art. 60, §4º, CF).</dd></div>
 <div class="gl" data-cat="sigla"><dt>PGR</dt><dd><b>Procurador-Geral da República</b> Legitimado universal (art. 103, VI, CF), único legitimado da ADI interventiva, e ouvido em todas as ações do STF (art. 103, §1º).</dd></div>
 <div class="gl" data-cat="sigla"><dt>QPC</dt><dd><b>Question prioritaire de constitutionnalité</b> Controle repressivo francês criado pela reforma de 2008 (art. 61-1 da Constituição francesa).</dd></div>
+<div class="gl" data-cat="sigla"><dt>CNJ</dt><dd><b>Conselho Nacional de Justiça</b> Órgão do Judiciário (art. 92, I-A) de controle administrativo, financeiro e disciplinar, sem função jurisdicional (ADI 3.367). 15 membros (art. 103-B).</dd></div>
 <div class="gl" data-cat="sigla"><dt>RE</dt><dd><b>Recurso extraordinário</b> Leva ao STF causas decididas em única ou última instância que envolvam questão constitucional (art. 102, III, CF).</dd></div>
 <div class="gl" data-cat="sigla"><dt>Rel. Min.</dt><dd><b>Relator ministro</b> Ministro responsável por conduzir o processo e apresentar o voto condutor.</dd></div>
 <div class="gl" data-cat="sigla"><dt>RG / Tema</dt><dd><b>Repercussão geral</b> Requisito de admissibilidade do RE (art. 102, §3º, CF; art. 1.035, CPC). Cada questão recebe um número de Tema.</dd></div>
 <div class="gl" data-cat="sigla"><dt>SV</dt><dd><b>Súmula vinculante</b> Enunciado aprovado por 2/3 do STF, com efeito vinculante para o Judiciário e a Administração (art. 103-A, CF).</dd></div>
 <div class="gl" data-cat="sigla"><dt>STF</dt><dd><b>Supremo Tribunal Federal</b> Guardião da Constituição (art. 102, CF); concentra o controle abstrato em face da CF.</dd></div>
 <div class="gl" data-cat="sigla"><dt>TCU</dt><dd><b>Tribunal de Contas da União</b> Órgão de controle externo que auxilia o Congresso (art. 71, CF). Ver Súmula 347 e MS 25.888 AgR.</dd></div>
+<div class="gl" data-cat="sigla"><dt>STM</dt><dd><b>Superior Tribunal Militar</b> Órgão de cúpula da Justiça Militar da União; 15 Ministros vitalícios (art. 123, CF).</dd></div>
+<div class="gl" data-cat="sigla"><dt>TSE / TST</dt><dd><b>Tribunal Superior Eleitoral / Tribunal Superior do Trabalho</b> TSE: no mínimo 7 membros (art. 119). TST: 27 Ministros (art. 111-A).</dd></div>
 <div class="gl" data-cat="sigla"><dt>TJ</dt><dd><b>Tribunal de Justiça</b> Tribunal estadual; julga a representação de inconstitucionalidade em face da Constituição Estadual.</dd></div>
+<div class="gl" data-cat="sigla"><dt>TJM</dt><dd><b>Tribunal de Justiça Militar</b> Só nos Estados com efetivo militar superior a 20 mil integrantes (art. 125, §3º).</dd></div>
+<div class="gl" data-cat="sigla"><dt>TRE / TRT</dt><dd><b>Tribunal Regional Eleitoral / Tribunal Regional do Trabalho</b> Tribunais de 2º grau das Justiças Eleitoral e do Trabalho.</dd></div>
 <div class="gl" data-cat="sigla"><dt>TRF</dt><dd><b>Tribunal Regional Federal</b> Tribunal da Justiça Federal de 2º grau. Ex.: o TRF da 1ª Região no RE 635.088 AgR.</dd></div>
 </dl>
 <h3 class="gh" data-cat="latim">Expressões latinas e estrangeiras</h3>
@@ -759,13 +862,14 @@ html{scroll-behavior:smooth}
 
 <!-- ============ SIMULADO ============ -->
 <section class="unit" id="simulado">
-<div class="unit-head"><span class="num">Q</span><h2>Simulado: 30 questões</h2></div>
-<p>Responda e clique em <b>Corrigir</b>. Cada questão traz o fundamento da resposta. As escolhas ficam salvas neste navegador.</p>
+<div class="unit-head"><span class="num">Q</span><h2>Simulado: 81 questões</h2></div>
+<p>Questões organizadas na ordem das unidades e conferidas na Constituição, no CPC, nas leis do controle e na jurisprudência. Responda, clique em <b>Corrigir</b> e leia o fundamento. Você pode filtrar por unidade. As escolhas ficam salvas neste navegador.</p>
 <div class="qtools">
+  <select class="qfilter" id="qFilter" aria-label="Filtrar questões por unidade"><option value="all">Todas as unidades</option></select>
   <button class="btn" id="checkBtn" type="button">Corrigir</button>
   <button class="btn ghost" id="resetBtn" type="button">Limpar respostas</button>
   <button class="btn ghost" id="missBtn" type="button" hidden>Mostrar só as erradas</button>
-  <span class="score" id="score">0 de 30 respondidas</span>
+  <span class="score" id="score"></span>
 </div>
 <div id="quiz"></div>
 </section>
@@ -796,8 +900,11 @@ html{scroll-behavior:smooth}
   <li>BARROSO, Luís Roberto. <em>O Controle de Constitucionalidade no Direito Brasileiro</em>. São Paulo: Saraiva.</li>
   <li>CANOTILHO, J. J. Gomes. <em>Direito Constitucional e Teoria da Constituição</em>. Coimbra: Almedina.</li>
   <li>KELSEN, Hans. <em>Jurisdição Constitucional</em>. São Paulo: Martins Fontes.</li>
-  <li>LENZA, Pedro. <em>Direito Constitucional</em>. São Paulo: Saraiva (SaraivaJur).</li>
-  <li>ARABI, Walid. Slides das aulas de Controle de Constitucionalidade. Universidade FUMEC, 2º semestre de 2026.</li>
+  <li>LENZA, Pedro. <em>Direito Constitucional</em>. 27. ed. São Paulo: SaraivaJur, 2023.</li>
+  <li>STF. <a href="https://www.stf.jus.br/arquivo/cms/publicacaoBOInternet/anexo/link_download/casos_relevantes/pt/ADI_3367.pdf" target="_blank" rel="noopener">ADI 3.367, criação do CNJ (resumo oficial)</a>.</li>
+  <li>TSE. <a href="https://www.tse.jus.br/imprensa/noticias-tse/2021/Julho/constituicao-federal-estabelece-a-composicao-do-tse" target="_blank" rel="noopener">Composição do TSE (art. 119 da CF)</a>.</li>
+  <li>Câmara dos Deputados. <a href="https://www2.camara.leg.br/legin/fed/emecon/2022/emendaconstitucional-122-17-maio-2022-792638-norma-pl.html" target="_blank" rel="noopener">Emenda Constitucional 122/2022</a> · <a href="https://planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc61.htm" target="_blank" rel="noopener">Emenda Constitucional 61/2009 (CNJ)</a>.</li>
+  <li>ARABI, Walid. Slides das aulas de Controle de Constitucionalidade e de Poder Judiciário (Direitos Fundamentais e Poderes do Estado), com organograma da estrutura da Justiça. Universidade FUMEC, 2º semestre de 2026.</li>
 </ul>
 </section>
 
@@ -821,6 +928,13 @@ html{scroll-behavior:smooth}
 (function(){
   /* Controle de versão: adicione a nova versão NO TOPO da lista */
   const VERSIONS=[
+    {v:"1.6",date:"2026-10-26",title:"Poder Judiciário e simulado ampliado",items:[
+      "Nova unidade 05, Poder Judiciário: funções, órgãos (art. 92), CNJ (ADI 3.367), estrutura da Justiça, quinto constitucional, garantias e composição dos tribunais.",
+      "Correções ao slide: composição do TSE no art. 119 e do STM no art. 123; atualização pela EC 122/2022 (idade máxima de 70 anos).",
+      "Simulado ampliado de 30 para 81 questões, com filtro por unidade.",
+      "Glossário com CNJ, STM, TSE, TST, TJM, TRE e TRT.",
+      "EC 122/2022 conferida no texto oficial da Constituição: quadro com os sete dispositivos alterados e as idades antes e depois.",
+      "Garantias dos juízes (art. 95) com o texto constitucional; corrigida a referência ao terço do STJ (art. 104, parágrafo único, II)."]},
     {v:"1.5.1",date:"2026-10-22",title:"Conferência com os slides",items:[
       "Conferência dos cinco PDFs contra a página: completados o detalhe do art. 225, §1º, III, na ADI 4218 AgR e a observação de que só o STF desencadeia a ampliação de efeitos no controle difuso."]},
     {v:"1.5",date:"2026-10-21",title:"Glossário",items:[
@@ -888,12 +1002,12 @@ html{scroll-behavior:smooth}
   });
 
   /* Progresso */
-  const units=['teoria','sistemas','brasil','tipologia','difuso','concentrado','revisao'];
+  const units=['teoria','sistemas','brasil','tipologia','judiciario','difuso','concentrado','revisao'];
   let done=store.get('cc_done')||{};
   function paintProg(){
     const n=units.filter(u=>done[u]).length;
-    document.getElementById('progTxt').textContent=n+' de 7 unidades estudadas';
-    document.getElementById('progBar').style.width=(n/7*100)+'%';
+    document.getElementById('progTxt').textContent=n+' de '+units.length+' unidades estudadas';
+    document.getElementById('progBar').style.width=(n/units.length*100)+'%';
     document.querySelectorAll('.mark').forEach(b=>{const u=b.dataset.unit;b.classList.toggle('ok',!!done[u]);b.textContent=done[u]?'Unidade estudada ✓':'Marcar unidade como estudada'});
     document.querySelectorAll('#tocList a').forEach(a=>{a.classList.toggle('done',!!done[a.getAttribute('href').slice(1)])});
   }
@@ -910,74 +1024,137 @@ html{scroll-behavior:smooth}
 
   /* Questões */
   const Q=[
-  ["São pressupostos indispensáveis do controle de constitucionalidade:",["Supremacia e rigidez da Constituição.","Federalismo e separação de Poderes.","Existência de Corte Constitucional e de súmula vinculante.","Constituição escrita e controle exclusivamente judicial."],0,"Sem supremacia (hierarquia) e rigidez (alteração mais difícil que a lei), não há como invalidar a norma inferior. Federalismo e separação de Poderes são outras pedras de toque do constitucionalismo."],
-  ["Sobre a Constituição flexível (exemplo tradicional: o sistema constitucional do Reino Unido), é correto afirmar:",["Admite controle difuso, mas não concentrado.","Admite controle apenas preventivo.","Não admite controle de constitucionalidade, pois a lei posterior revoga a anterior.","Admite controle político repressivo pelo Parlamento."],2,"Na Constituição flexível não há distinção formal entre norma constitucional e lei ordinária; o conflito se resolve pelo critério cronológico."],
-  ["Em Marbury v. Madison (1803), a Suprema Corte dos EUA:",["Concedeu o writ of mandamus e determinou a posse de Marbury.","Declarou inconstitucional a Seção 13 da Lei Judiciária por ampliar sua competência originária.","Criou o controle concentrado em Corte Constitucional.","Declarou nula a nomeação de Marbury por vício formal."],1,"Marshall reconheceu o direito de Marbury, mas declarou inválida a norma que ampliava a competência originária da Corte, firmando o judicial review."],
-  ["Sobre o Pacto de São José da Costa Rica, o STF (RE 466.343) firmou que:",["Tem status de emenda constitucional.","Tem status de lei ordinária.","Tem status supralegal, o que tornou ilícita a prisão civil do depositário infiel (SV 25).","Não se aplica no Brasil por ausência de aprovação por 3/5."],2,"Tratado de direitos humanos incorporado antes da EC 45/2004: status supralegal, acima das leis e abaixo da CF."],
-  ["Tratado internacional de direitos humanos aprovado em cada Casa do Congresso, em dois turnos, por três quintos dos votos:",["Terá status supralegal.","Será equivalente às emendas constitucionais (art. 5º, §3º, CF).","Terá status de lei complementar.","Dependerá de súmula vinculante para ter eficácia."],1,"É o rito do art. 5º, §3º, incluído pela EC 45/2004. Exemplo: Convenção sobre os Direitos das Pessoas com Deficiência (Decreto 6.949/2009)."],
-  ["Quanto à natureza do ato inconstitucional, o STF:",["Adota a teoria da anulabilidade, com decisão constitutiva negativa.","Adota a teoria da nulidade, admitindo modulação de efeitos pelas Leis 9.868/1999 e 9.882/1999.","Adota a teoria da inexistência, sem possibilidade de modulação.","Aplica a nulidade apenas no controle difuso."],1,"Prevalece a nulidade (matriz norte-americana), temperada pela modulação por 2/3 dos ministros (art. 27, Lei 9.868/1999, aplicado por analogia também no controle difuso)."],
-  ["O modelo austríaco, concebido por Hans Kelsen, caracteriza-se por controle:",["Difuso, incidental, inter partes e ex tunc.","Político, preventivo e abstrato.","Concentrado, principal, erga omnes e ex nunc.","Misto, com controle político para leis federais."],2,"Conforme as aulas: órgão único, via de ação, análise em tese, efeitos para todos e prospectivos (teoria da anulabilidade). Atenção: no Brasil, a decisão no concentrado é, em regra, ex tunc, pois o STF adota a nulidade."],
-  ["O modelo francês de 1958 é paradigma de controle:",["Judicial difuso.","Político preventivo, exercido pelo Conselho Constitucional; desde a reforma de 2008 admite também controle repressivo.","Judicial concentrado repressivo.","Político repressivo exercido pelo Senado."],1,"A revisão de 2008 criou a QPC (art. 61-1), provocada pelo Conselho de Estado ou pela Corte de Cassação."],
-  ["A Suíça é citada como exemplo de controle quanto à natureza do órgão do tipo:",["Político puro.","Judicial concentrado.","Misto: político para leis federais e judicial difuso para leis cantonais.","Judicial preventivo."],2,"No controle misto quanto à natureza, coexistem controle político e judicial como regra geral."],
-  ["O veto do Presidente da República fundado na inconstitucionalidade do projeto de lei (art. 66, §1º, CF) é exemplo de controle:",["Judicial preventivo.","Político repressivo.","Político preventivo.","Judicial repressivo difuso."],2,"Ocorre antes do aperfeiçoamento da norma, por órgão não judicial. O veto pode ser jurídico, político ou ambos."],
-  ["Sobre o controle judicial preventivo no Brasil, é correto afirmar:",["Pode ser provocado por qualquer cidadão, por ação popular.","Ocorre por mandado de segurança de parlamentar no STF e não alcança, em regra, o conteúdo material do projeto de lei (MS 32.033).","É exercido pelo STF em ADI contra projeto de lei.","Permite ao STF suspender qualquer projeto de lei por ofensa material à CF."],1,"O parlamentar defende seu direito ao devido processo legislativo. O STF rejeitou o controle material de projetos de lei (MS 24.667 e MS 32.033)."],
-  ["O Congresso Nacional susta decreto do Executivo que exorbita o poder regulamentar (art. 49, V, CF). Trata-se de controle:",["Político repressivo.","Político preventivo.","Judicial repressivo.","Judicial preventivo."],0,"O ato já está em vigor e quem atua é o Legislativo. Também é político repressivo a rejeição de MP sem pressupostos (art. 62, §5º)."],
-  ["Sobre a Súmula 347 do STF (Tribunal de Contas pode apreciar a constitucionalidade de leis), é correto afirmar:",["Foi convertida em súmula vinculante.","Segundo o STF (MS 25.888 AgR, 2023), é compatível com a CF/88, mas só permite ao Tribunal de Contas afastar a aplicação de norma no caso concreto, sem controle abstrato.","Autoriza o TCU a declarar lei inconstitucional com efeito erga omnes.","Foi editada após a CF/88."],1,"O enunciado é de 1963. Depois de decisões que questionaram sua validade (MS 35.410, 2021), o Plenário a reafirmou em 2023 com limites: nada de controle abstrato; apenas afastamento incidental de norma manifestamente inconstitucional ou contrária à jurisprudência do STF."],
-  ["Lei estadual que tipifica crime e comina pena padece de inconstitucionalidade:",["Material.","Formal orgânica, por violar a competência privativa da União (art. 22, I, CF).","Formal procedimental objetiva.","Por omissão."],1,"Vício de competência legislativa é formal orgânico. Mesmo raciocínio da SV 46 (crimes de responsabilidade) e da SV 2 (loterias)."],
-  ["Lei complementar aprovada por maioria simples, e não por maioria absoluta (art. 69, CF), apresenta vício:",["Formal procedimental objetivo.","Formal procedimental subjetivo.","Formal orgânico.","Material."],0,"O defeito está na fase constitutiva (votação) do processo legislativo."],
-  ["O vício de iniciativa no processo legislativo é classificado como inconstitucionalidade:",["Material, convalidável pela sanção.","Formal procedimental subjetiva, não convalidada pela sanção.","Formal orgânica.","Indireta reflexa."],1,"Diz respeito ao sujeito que deflagra o processo. A antiga Súmula 5 do STF, que admitia convalidação pela sanção, está superada."],
-  ["A inconstitucionalidade por omissão pressupõe:",["Norma constitucional de eficácia plena.","Norma constitucional de eficácia limitada, pendente de regulamentação.","Lei inconstitucional em vigor.","Decisão do Senado suspendendo a lei."],1,"Em regra, a omissão inconstitucional se liga a norma de eficácia limitada ou a dever constitucional específico de agir. Exemplos: ADO 26 (2019) e ADO 82 (2025), sobre retenção dolosa de salário (art. 7º, X)."],
-  ["Sobre o princípio da parcelaridade, é correto afirmar:",["Aplica-se igualmente ao veto parcial, que pode recair sobre palavras isoladas.","Permite ao Judiciário declarar a inconstitucionalidade de apenas uma palavra ou expressão, o que o veto parcial não permite.","Impede a declaração parcial de inconstitucionalidade.","Só se aplica no controle difuso."],1,"O veto parcial abrange texto integral de artigo, parágrafo, inciso ou alínea (art. 66, §2º). Exemplo judicial: ADI 6510, que retirou só a expressão “o Chefe da Polícia Civil”."],
-  ["Lei de 1980 incompatível com a CF/88 deve ser tratada, segundo o STF, como caso de:",["Inconstitucionalidade superveniente, impugnável por ADI.","Não recepção (revogação), não impugnável por ADI, mas sim por ADPF.","Inconstitucionalidade originária.","Ilegalidade, resolvida no plano infraconstitucional."],1,"ADI 2 (1992) rejeitou a inconstitucionalidade superveniente. A Lei de Imprensa, por exemplo, foi declarada não recepcionada na ADPF 130 (2009)."],
-  ["Decreto regulamentar que contraria a lei que deveria executar, segundo o STF (ADI 4218 AgR):",["É inconstitucional de forma direta, cabendo ADI.","Padece de vício de legalidade; a ofensa à Constituição seria reflexa, não cabendo ADI.","Deve ser sustado apenas pelo TCU.","É inconstitucional por arrastamento automático."],1,"Excesso do poder regulamentar resolve-se no plano da legalidade (inconstitucionalidade indireta reflexa ou oblíqua)."],
-  ["A inconstitucionalidade por arrastamento:",["É exceção ao princípio da congruência (art. 492, CPC), permitindo ao STF alcançar norma dependente não impugnada.","Só pode ser declarada se houver pedido expresso.","É modalidade de inconstitucionalidade por omissão.","Não é admitida pelo STF."],0,"Exemplo: ADI 6738, em que o decreto goiano que regulamentava a lei impugnada caiu junto com ela."],
-  ["No controle difuso, a inconstitucionalidade:",["Só pode ser arguida pelo Ministério Público.","Pode ser reconhecida de ofício pelo juiz ou tribunal.","Exige pedido principal de declaração de inconstitucionalidade.","Só pode ser analisada pelo STF."],1,"Qualquer parte pode arguir, e o juiz pode conhecer de ofício, pois a questão é prejudicial ao julgamento do caso."],
-  ["Sobre ação civil pública e controle de constitucionalidade (RE 411.156), é correto afirmar:",["A ACP é sucedâneo válido da ADI.","A ACP admite controle incidental, desde que a questão constitucional seja prejudicial e não o objeto único da demanda.","A ACP nunca admite discussão constitucional.","A ACP produz sempre efeitos vinculantes sobre a constitucionalidade."],1,"Usar a ACP só para obter declaração de inconstitucionalidade com efeitos gerais usurparia a competência do STF."],
-  ["Câmara de Tribunal de Justiça afasta a aplicação de lei estadual, sem declarar expressamente sua inconstitucionalidade, por entendê-la incompatível com a CF. A decisão:",["É válida, pois não houve declaração expressa.","Viola a cláusula de reserva de plenário, nos termos da Súmula Vinculante 10.","É válida, pois órgão fracionário pode declarar inconstitucionalidade.","Só seria inválida se a lei fosse federal."],1,"Afastar a incidência da lei equivale a declarar sua inconstitucionalidade e exige maioria absoluta do pleno ou órgão especial (art. 97, CF)."],
-  ["Não é necessário submeter a arguição de inconstitucionalidade ao plenário ou órgão especial quando:",["A parte contrária concordar.","Já houver pronunciamento desses órgãos ou do Plenário do STF sobre a questão (art. 949, parágrafo único, CPC).","A lei for estadual.","O relator entender que a questão é simples."],1,"É uma das exceções à reserva de plenário. Outras: declaração de constitucionalidade, normas pré-constitucionais e interpretação conforme."],
-  ["O STF só pode recusar recurso extraordinário por ausência de repercussão geral:",["Por decisão monocrática do relator.","Pela manifestação de dois terços de seus membros.","Por maioria simples da Turma.","Após resolução do Senado."],1,"Art. 102, §3º, CF. O reconhecimento da repercussão geral é competência exclusiva do STF."],
-  ["Sobre o art. 52, X, da CF, é correto afirmar:",["Na leitura clássica, o Senado suspende por resolução, discricionariamente, a lei declarada inconstitucional pelo STF em decisão definitiva, com efeitos erga omnes e ex nunc.","O Senado é obrigado a suspender a lei em 30 dias.","A suspensão se aplica às decisões do controle concentrado.","O Senado pode suspender lei declarada inconstitucional por qualquer tribunal."],0,"Nas ADIs 3.406 e 3.470 (2017), o STF entendeu ter havido mutação constitucional: o Senado apenas dá publicidade à decisão do Plenário, que já teria eficácia geral."],
-  ["A súmula vinculante (art. 103-A, CF):",["É aprovada por maioria absoluta do STF.","É aprovada por dois terços do STF e, se descumprida, autoriza reclamação ao STF.","Vincula o Poder Legislativo na sua função de legislar.","Produz efeitos apenas inter partes."],1,"Exige reiteradas decisões sobre matéria constitucional, controvérsia atual e grave insegurança jurídica. Não vincula a função legislativa."],
-  ["Sobre os legitimados do art. 103 da CF para a ADI, assinale a correta:",["O Governador de Estado é legitimado universal.","O Conselho Federal da OAB precisa demonstrar pertinência temática.","Confederação sindical e entidade de classe de âmbito nacional precisam demonstrar pertinência temática.","Partido político sem representação no Congresso pode propor ADI."],2,"Exigem pertinência temática: Mesas de Assembleias e da Câmara Legislativa, Governadores e confederações sindicais ou entidades de classe nacionais."],
-  ["Lei municipal que contraria diretamente a Constituição Federal:",["Pode ser impugnada por ADI no STF.","Pode ser impugnada por ADC no STF.","Não comporta ADI no STF; admite ADPF, controle difuso e, se o parâmetro for norma de reprodução obrigatória, controle abstrato no TJ (RE 650.898).","Só pode ser invalidada pela Câmara Municipal."],2,"A ADI no STF alcança apenas lei federal ou estadual (art. 102, I, “a”); a ADC, apenas lei federal."]
+  ["teoria","São pressupostos indispensáveis do controle de constitucionalidade:",["Supremacia e rigidez da Constituição.","Federalismo e separação de Poderes.","Existência de Corte Constitucional e de súmula vinculante.","Constituição escrita e controle exclusivamente judicial."],0,"Sem supremacia (hierarquia) e rigidez (alteração mais difícil que a lei), não há como invalidar a norma inferior. Federalismo e separação de Poderes são outras pedras de toque do constitucionalismo."],
+  ["teoria","Sobre a Constituição flexível (exemplo tradicional: o sistema constitucional do Reino Unido), é correto afirmar:",["Admite controle difuso, mas não concentrado.","Admite controle apenas preventivo.","Não admite controle de constitucionalidade, pois a lei posterior revoga a anterior.","Admite controle político repressivo pelo Parlamento."],2,"Na Constituição flexível não há distinção formal entre norma constitucional e lei ordinária; o conflito se resolve pelo critério cronológico."],
+  ["teoria","Em Marbury v. Madison (1803), a Suprema Corte dos EUA:",["Concedeu o writ of mandamus e determinou a posse de Marbury.","Declarou inconstitucional a Seção 13 da Lei Judiciária por ampliar sua competência originária.","Criou o controle concentrado em Corte Constitucional.","Declarou nula a nomeação de Marbury por vício formal."],1,"Marshall reconheceu o direito de Marbury, mas declarou inválida a norma que ampliava a competência originária da Corte, firmando o judicial review."],
+  ["teoria","Sobre o Pacto de São José da Costa Rica, o STF (RE 466.343) firmou que:",["Tem status de emenda constitucional.","Tem status de lei ordinária.","Tem status supralegal, o que tornou ilícita a prisão civil do depositário infiel (SV 25).","Não se aplica no Brasil por ausência de aprovação por 3/5."],2,"Tratado de direitos humanos incorporado antes da EC 45/2004: status supralegal, acima das leis e abaixo da CF."],
+  ["teoria","Tratado internacional de direitos humanos aprovado em cada Casa do Congresso, em dois turnos, por três quintos dos votos:",["Terá status supralegal.","Será equivalente às emendas constitucionais (art. 5º, §3º, CF).","Terá status de lei complementar.","Dependerá de súmula vinculante para ter eficácia."],1,"É o rito do art. 5º, §3º, incluído pela EC 45/2004. Exemplo: Convenção sobre os Direitos das Pessoas com Deficiência (Decreto 6.949/2009)."],
+  ["teoria","Quanto à natureza do ato inconstitucional, o STF:",["Adota a teoria da anulabilidade, com decisão constitutiva negativa.","Adota a teoria da nulidade, admitindo modulação de efeitos pelas Leis 9.868/1999 e 9.882/1999.","Adota a teoria da inexistência, sem possibilidade de modulação.","Aplica a nulidade apenas no controle difuso."],1,"Prevalece a nulidade (matriz norte-americana), temperada pela modulação por 2/3 dos ministros (art. 27, Lei 9.868/1999, aplicado por analogia também no controle difuso)."],
+  ["sistemas","O modelo austríaco, concebido por Hans Kelsen, caracteriza-se por controle:",["Difuso, incidental, inter partes e ex tunc.","Político, preventivo e abstrato.","Concentrado, principal, erga omnes e ex nunc.","Misto, com controle político para leis federais."],2,"Conforme as aulas: órgão único, via de ação, análise em tese, efeitos para todos e prospectivos (teoria da anulabilidade). Atenção: no Brasil, a decisão no concentrado é, em regra, ex tunc, pois o STF adota a nulidade."],
+  ["sistemas","O modelo francês de 1958 é paradigma de controle:",["Judicial difuso.","Político preventivo, exercido pelo Conselho Constitucional; desde a reforma de 2008 admite também controle repressivo.","Judicial concentrado repressivo.","Político repressivo exercido pelo Senado."],1,"A revisão de 2008 criou a QPC (art. 61-1), provocada pelo Conselho de Estado ou pela Corte de Cassação."],
+  ["sistemas","A Suíça é citada como exemplo de controle quanto à natureza do órgão do tipo:",["Político puro.","Judicial concentrado.","Misto: político para leis federais e judicial difuso para leis cantonais.","Judicial preventivo."],2,"No controle misto quanto à natureza, coexistem controle político e judicial como regra geral."],
+  ["brasil","O veto do Presidente da República fundado na inconstitucionalidade do projeto de lei (art. 66, §1º, CF) é exemplo de controle:",["Judicial preventivo.","Político repressivo.","Político preventivo.","Judicial repressivo difuso."],2,"Ocorre antes do aperfeiçoamento da norma, por órgão não judicial. O veto pode ser jurídico, político ou ambos."],
+  ["brasil","Sobre o controle judicial preventivo no Brasil, é correto afirmar:",["Pode ser provocado por qualquer cidadão, por ação popular.","Ocorre por mandado de segurança de parlamentar no STF e não alcança, em regra, o conteúdo material do projeto de lei (MS 32.033).","É exercido pelo STF em ADI contra projeto de lei.","Permite ao STF suspender qualquer projeto de lei por ofensa material à CF."],1,"O parlamentar defende seu direito ao devido processo legislativo. O STF rejeitou o controle material de projetos de lei (MS 24.667 e MS 32.033)."],
+  ["brasil","O Congresso Nacional susta decreto do Executivo que exorbita o poder regulamentar (art. 49, V, CF). Trata-se de controle:",["Político repressivo.","Político preventivo.","Judicial repressivo.","Judicial preventivo."],0,"O ato já está em vigor e quem atua é o Legislativo. Também é político repressivo a rejeição de MP sem pressupostos (art. 62, §5º)."],
+  ["brasil","Sobre a Súmula 347 do STF (Tribunal de Contas pode apreciar a constitucionalidade de leis), é correto afirmar:",["Foi convertida em súmula vinculante.","Segundo o STF (MS 25.888 AgR, 2023), é compatível com a CF/88, mas só permite ao Tribunal de Contas afastar a aplicação de norma no caso concreto, sem controle abstrato.","Autoriza o TCU a declarar lei inconstitucional com efeito erga omnes.","Foi editada após a CF/88."],1,"O enunciado é de 1963. Depois de decisões que questionaram sua validade (MS 35.410, 2021), o Plenário a reafirmou em 2023 com limites: nada de controle abstrato; apenas afastamento incidental de norma manifestamente inconstitucional ou contrária à jurisprudência do STF."],
+  ["tipologia","Lei estadual que tipifica crime e comina pena padece de inconstitucionalidade:",["Material.","Formal orgânica, por violar a competência privativa da União (art. 22, I, CF).","Formal procedimental objetiva.","Por omissão."],1,"Vício de competência legislativa é formal orgânico. Mesmo raciocínio da SV 46 (crimes de responsabilidade) e da SV 2 (loterias)."],
+  ["tipologia","Lei complementar aprovada por maioria simples, e não por maioria absoluta (art. 69, CF), apresenta vício:",["Formal procedimental objetivo.","Formal procedimental subjetivo.","Formal orgânico.","Material."],0,"O defeito está na fase constitutiva (votação) do processo legislativo."],
+  ["tipologia","O vício de iniciativa no processo legislativo é classificado como inconstitucionalidade:",["Material, convalidável pela sanção.","Formal procedimental subjetiva, não convalidada pela sanção.","Formal orgânica.","Indireta reflexa."],1,"Diz respeito ao sujeito que deflagra o processo. A antiga Súmula 5 do STF, que admitia convalidação pela sanção, está superada."],
+  ["tipologia","A inconstitucionalidade por omissão pressupõe:",["Norma constitucional de eficácia plena.","Norma constitucional de eficácia limitada, pendente de regulamentação.","Lei inconstitucional em vigor.","Decisão do Senado suspendendo a lei."],1,"Em regra, a omissão inconstitucional se liga a norma de eficácia limitada ou a dever constitucional específico de agir. Exemplos: ADO 26 (2019) e ADO 82 (2025), sobre retenção dolosa de salário (art. 7º, X)."],
+  ["tipologia","Sobre o princípio da parcelaridade, é correto afirmar:",["Aplica-se igualmente ao veto parcial, que pode recair sobre palavras isoladas.","Permite ao Judiciário declarar a inconstitucionalidade de apenas uma palavra ou expressão, o que o veto parcial não permite.","Impede a declaração parcial de inconstitucionalidade.","Só se aplica no controle difuso."],1,"O veto parcial abrange texto integral de artigo, parágrafo, inciso ou alínea (art. 66, §2º). Exemplo judicial: ADI 6510, que retirou só a expressão “o Chefe da Polícia Civil”."],
+  ["tipologia","Lei de 1980 incompatível com a CF/88 deve ser tratada, segundo o STF, como caso de:",["Inconstitucionalidade superveniente, impugnável por ADI.","Não recepção (revogação), não impugnável por ADI, mas sim por ADPF.","Inconstitucionalidade originária.","Ilegalidade, resolvida no plano infraconstitucional."],1,"ADI 2 (1992) rejeitou a inconstitucionalidade superveniente. A Lei de Imprensa, por exemplo, foi declarada não recepcionada na ADPF 130 (2009)."],
+  ["tipologia","Decreto regulamentar que contraria a lei que deveria executar, segundo o STF (ADI 4218 AgR):",["É inconstitucional de forma direta, cabendo ADI.","Padece de vício de legalidade; a ofensa à Constituição seria reflexa, não cabendo ADI.","Deve ser sustado apenas pelo TCU.","É inconstitucional por arrastamento automático."],1,"Excesso do poder regulamentar resolve-se no plano da legalidade (inconstitucionalidade indireta reflexa ou oblíqua)."],
+  ["tipologia","A inconstitucionalidade por arrastamento:",["É exceção ao princípio da congruência (art. 492, CPC), permitindo ao STF alcançar norma dependente não impugnada.","Só pode ser declarada se houver pedido expresso.","É modalidade de inconstitucionalidade por omissão.","Não é admitida pelo STF."],0,"Exemplo: ADI 6738, em que o decreto goiano que regulamentava a lei impugnada caiu junto com ela."],
+  ["difuso","No controle difuso, a inconstitucionalidade:",["Só pode ser arguida pelo Ministério Público.","Pode ser reconhecida de ofício pelo juiz ou tribunal.","Exige pedido principal de declaração de inconstitucionalidade.","Só pode ser analisada pelo STF."],1,"Qualquer parte pode arguir, e o juiz pode conhecer de ofício, pois a questão é prejudicial ao julgamento do caso."],
+  ["difuso","Sobre ação civil pública e controle de constitucionalidade (RE 411.156), é correto afirmar:",["A ACP é sucedâneo válido da ADI.","A ACP admite controle incidental, desde que a questão constitucional seja prejudicial e não o objeto único da demanda.","A ACP nunca admite discussão constitucional.","A ACP produz sempre efeitos vinculantes sobre a constitucionalidade."],1,"Usar a ACP só para obter declaração de inconstitucionalidade com efeitos gerais usurparia a competência do STF."],
+  ["difuso","Câmara de Tribunal de Justiça afasta a aplicação de lei estadual, sem declarar expressamente sua inconstitucionalidade, por entendê-la incompatível com a CF. A decisão:",["É válida, pois não houve declaração expressa.","Viola a cláusula de reserva de plenário, nos termos da Súmula Vinculante 10.","É válida, pois órgão fracionário pode declarar inconstitucionalidade.","Só seria inválida se a lei fosse federal."],1,"Afastar a incidência da lei equivale a declarar sua inconstitucionalidade e exige maioria absoluta do pleno ou órgão especial (art. 97, CF)."],
+  ["difuso","Não é necessário submeter a arguição de inconstitucionalidade ao plenário ou órgão especial quando:",["A parte contrária concordar.","Já houver pronunciamento desses órgãos ou do Plenário do STF sobre a questão (art. 949, parágrafo único, CPC).","A lei for estadual.","O relator entender que a questão é simples."],1,"É uma das exceções à reserva de plenário. Outras: declaração de constitucionalidade, normas pré-constitucionais e interpretação conforme."],
+  ["difuso","O STF só pode recusar recurso extraordinário por ausência de repercussão geral:",["Por decisão monocrática do relator.","Pela manifestação de dois terços de seus membros.","Por maioria simples da Turma.","Após resolução do Senado."],1,"Art. 102, §3º, CF. O reconhecimento da repercussão geral é competência exclusiva do STF."],
+  ["difuso","Sobre o art. 52, X, da CF, é correto afirmar:",["Na leitura clássica, o Senado suspende por resolução, discricionariamente, a lei declarada inconstitucional pelo STF em decisão definitiva, com efeitos erga omnes e ex nunc.","O Senado é obrigado a suspender a lei em 30 dias.","A suspensão se aplica às decisões do controle concentrado.","O Senado pode suspender lei declarada inconstitucional por qualquer tribunal."],0,"Nas ADIs 3.406 e 3.470 (2017), o STF entendeu ter havido mutação constitucional: o Senado apenas dá publicidade à decisão do Plenário, que já teria eficácia geral."],
+  ["difuso","A súmula vinculante (art. 103-A, CF):",["É aprovada por maioria absoluta do STF.","É aprovada por dois terços do STF e, se descumprida, autoriza reclamação ao STF.","Vincula o Poder Legislativo na sua função de legislar.","Produz efeitos apenas inter partes."],1,"Exige reiteradas decisões sobre matéria constitucional, controvérsia atual e grave insegurança jurídica. Não vincula a função legislativa."],
+  ["concentrado","Sobre os legitimados do art. 103 da CF para a ADI, assinale a correta:",["O Governador de Estado é legitimado universal.","O Conselho Federal da OAB precisa demonstrar pertinência temática.","Confederação sindical e entidade de classe de âmbito nacional precisam demonstrar pertinência temática.","Partido político sem representação no Congresso pode propor ADI."],2,"Exigem pertinência temática: Mesas de Assembleias e da Câmara Legislativa, Governadores e confederações sindicais ou entidades de classe nacionais."],
+  ["concentrado","Lei municipal que contraria diretamente a Constituição Federal:",["Pode ser impugnada por ADI no STF.","Pode ser impugnada por ADC no STF.","Não comporta ADI no STF; admite ADPF, controle difuso e, se o parâmetro for norma de reprodução obrigatória, controle abstrato no TJ (RE 650.898).","Só pode ser invalidada pela Câmara Municipal."],2,"A ADI no STF alcança apenas lei federal ou estadual (art. 102, I, “a”); a ADC, apenas lei federal."]
   ];
-  /* embaralha as alternativas de forma fixa, para variar o gabarito */
-  Q.forEach((q,i)=>{let s=(i+1)*9301+49297;const rnd=()=>{s=(s*9301+49297)%233280;return s/233280};
-    const idx=q[1].map((_,j)=>j);for(let k=idx.length-1;k>0;k--){const r=Math.floor(rnd()*(k+1));[idx[k],idx[r]]=[idx[r],idx[k]]}
-    q[1]=idx.map(j=>q[1][j]);q[2]=idx.indexOf(q[2]);});
+// novas questões: [unidade, enunciado, alternativas, índice correto, fundamento]
+  const NQ=[
+["teoria","O controle de constitucionalidade é definido, na aula, como:",["juízo de conveniência política sobre a lei.","juízo de adequação da norma infraconstitucional à Constituição, verificando a conformidade vertical, com sanção de invalidade.","controle da adequação de decretos à lei.","exame da compatibilidade das leis com tratados internacionais."],1,"Definição da Unidade 01. O exame de decretos diante da lei é controle de legalidade; o de leis diante de tratados é controle de convencionalidade."],
+["teoria","No caso Marbury v. Madison, o pedido de Marbury foi feito por meio de:",["habeas corpus.","writ of mandamus impetrado diretamente na Suprema Corte, com base na Seção 13 da Lei Judiciária de 1789.","ação direta de inconstitucionalidade.","recurso à Câmara dos Lordes."],1,"Marbury pediu o mandamus para obrigar Madison a entregar a commission. A Corte declarou inconstitucional a Seção 13 que lhe dava essa competência originária."],
+["teoria","A supremacia formal da Constituição:",["decorre da importância do conteúdo das normas constitucionais.","é a relação de hierarquia normativa entre a Constituição e as demais normas, decorrente da rigidez.","existe também nas Constituições flexíveis.","dispensa a rigidez constitucional."],1,"A supremacia material refere-se à importância do conteúdo; a formal, à hierarquia que decorre da rigidez."],
+["teoria","A rigidez da CF/88 manifesta-se, por exemplo, em que:",["leis ordinárias exigem 3/5 dos votos.","emendas constitucionais exigem discussão e votação em cada Casa, em dois turnos, com 3/5 dos votos.","a Constituição só pode ser alterada por plebiscito.","emendas exigem maioria simples."],1,"Art. 60, §2º, CF. A lei ordinária exige maioria simples (art. 47)."],
+["teoria","O controle de legalidade tem por objeto e parâmetro, respectivamente:",["leis e a Constituição.","normas infralegais (decretos, resoluções) e a lei em sentido estrito.","leis e tratados internacionais.","emendas constitucionais e cláusulas pétreas."],1,"Quadro de diferenciações da Unidade 01."],
+["teoria","São requisitos para que um tratado tenha status supralegal no Brasil:",["qualquer tratado comercial ratificado.","tratado formalmente celebrado, sobre direitos humanos, incorporado sem o rito do art. 5º, §3º.","tratado sobre direitos humanos aprovado por 3/5 em dois turnos.","decisão da Corte Interamericana."],1,"Forma, matéria e tempo/rito (Unidade 01). Aprovado por 3/5 em dois turnos, o tratado equivale a emenda constitucional."],
+["teoria","Para a corrente austríaca, o ato inconstitucional é:",["nulo de pleno direito, e a decisão é declaratória.","anulável, produzindo efeitos até a anulação, e a decisão é constitutiva negativa.","inexistente.","válido até manifestação do Senado."],1,"A corrente norte-americana adota a nulidade; a austríaca, a anulabilidade. O STF segue a nulidade, com modulação."],
+["sistemas","No controle incidental (via de exceção), a inconstitucionalidade é:",["o pedido principal da ação.","fundamento jurídico da decisão, analisado como questão prejudicial no caso concreto.","declarada com efeito erga omnes automaticamente.","exclusiva do STF."],1,"No controle principal (via de ação), a inconstitucionalidade é o próprio pedido."],
+["sistemas","Efeito ex tunc significa que a decisão:",["vale apenas para o futuro.","retroage à data de edição da lei ou ato normativo.","vale só entre as partes.","obriga a Administração Pública."],1,"Ex nunc é prospectivo; inter partes e vinculante dizem respeito ao alcance subjetivo, não ao temporal."],
+["sistemas","O Conselho Constitucional francês é composto por:",["onze membros vitalícios indicados pelo Presidente.","nove membros, indicados em igual número pelos Presidentes da República, da Assembleia Nacional e do Senado, além dos ex-Presidentes da República como membros natos.","quinze juízes eleitos pelo Parlamento.","todos os magistrados da Corte de Cassação."],1,"Detalhe do modelo francês (Unidade 02)."],
+["sistemas","O controle em que coexistem difuso e concentrado como regra geral, quanto ao órgão judicial, chama-se:",["político.","misto, como no Brasil.","preventivo.","incidental."],1,"Classificação quanto ao órgão judicial que exerce o controle."],
+["brasil","A regra geral do sistema brasileiro de controle é:",["político preventivo.","judicial repressivo misto (difuso e concentrado).","político repressivo pelo TCU.","judicial preventivo por ADI."],1,"As demais modalidades são exceções (Unidade 03)."],
+["brasil","As Comissões de Constituição, Justiça e Cidadania das Casas do Congresso exercem controle:",["judicial preventivo.","político preventivo.","político repressivo.","judicial repressivo."],1,"Atuam durante o processo legislativo, antes do aperfeiçoamento da norma."],
+["brasil","A rejeição de medida provisória pelo Congresso por ausência dos pressupostos constitucionais (art. 62, §5º) é exemplo de controle:",["político preventivo.","político repressivo.","judicial preventivo.","judicial difuso."],1,"A MP já está em vigor quando é apreciada; quem atua é o Legislativo."],
+["brasil","Segundo o STF (ADI 221-MC), o Chefe do Executivo:",["nunca pode deixar de aplicar lei em vigor.","pode deixar de aplicar administrativamente lei que entenda inconstitucional, tema controvertido e que não equivale a autorização irrestrita.","pode revogar a lei por decreto.","deve pedir autorização ao Senado."],1,"Unidade 03, com a ressalva de que o tema é controvertido e a recusa pode até configurar improbidade."],
+["brasil","No mandado de segurança impetrado por parlamentar contra a tramitação de projeto, o STF, em regra:",["examina o conteúdo do projeto de lei.","só examina vícios do processo legislativo, salvo propostas de emenda tendentes a abolir cláusulas pétreas.","pode suspender a lei já promulgada com efeito erga omnes.","exige a participação do PGR como autor."],1,"MS 32.033 (2013) e MS 24.667. A exceção está no art. 60, §4º, CF."],
+["tipologia","A inconstitucionalidade formal orgânica decorre de:",["vício no conteúdo da norma.","descumprimento das regras de competência para editar a norma.","vício na fase de iniciativa.","vício no quórum de votação."],1,"Iniciativa é vício procedimental subjetivo; quórum, procedimental objetivo."],
+["tipologia","Medida provisória editada sem relevância e urgência (art. 62, CF) padece de inconstitucionalidade formal por:",["vício de iniciativa.","violação a pressupostos objetivos do ato.","vício orgânico.","omissão."],1,"Modalidade identificada por Canotilho; outro exemplo é o art. 18, §4º (criação de municípios)."],
+["tipologia","Na ADI 2975, o STF tratou o art. 137, parágrafo único, da Lei 8.112/1990 como:",["exemplo de controle de legalidade.","inconstitucionalidade material por violar a vedação de penas de caráter perpétuo (art. 5º, XLVII, “b”).","vício de iniciativa.","inconstitucionalidade por omissão."],1,"Nos embargos, o STF retirou a expressão “sem pronúncia de nulidade” e aplicou o prazo de cinco anos do caput até nova lei."],
+["tipologia","Uma mesma lei pode apresentar inconstitucionalidade formal e material ao mesmo tempo, como reconheceu o STF:",["nunca, pois as modalidades se excluem.","na ADI 6769, sobre critério de antiguidade na magistratura do Paraná.","só no controle difuso.","apenas em leis municipais."],1,"Formal: matéria reservada ao Estatuto da Magistratura (art. 93). Material: ofensa à isonomia."],
+["tipologia","Na ADO 82 (2025), sobre a retenção dolosa de salário (art. 7º, X, CF), o STF:",["declarou a omissão constitucional legítima.","reconheceu a mora do Congresso e fixou prazo de 180 dias para a edição da lei.","criou o tipo penal por decisão judicial.","negou competência para julgar a ação."],1,"Exemplo de inconstitucionalidade por omissão (Unidade 04)."],
+["tipologia","No RE 1.530.083 (Tema 1.388, 2025), o STF declarou inconstitucional regra do Estatuto dos Militares que:",["exigia altura mínima.","condicionava o ingresso e a permanência em cursos de formação à inexistência de vínculo conjugal, união estável, maternidade, paternidade ou dependência socioafetiva.","proibia militares de votar.","fixava idade máxima de 30 anos."],1,"Exemplo de inconstitucionalidade por ação, com ofensa à igualdade e à proteção da família."],
+["tipologia","No RE 396.386 (2004), sobre a Lei de Imprensa e a indenização tarifada, o STF aplicou:",["inconstitucionalidade superveniente.","a não recepção da norma anterior à CF/88.","modulação de efeitos.","interpretação conforme."],1,"Normas anteriores incompatíveis com a nova Constituição são revogadas (não recepcionadas)."],
+["tipologia","Na ADI 6738 (2022), o STF declarou inconstitucional lei de Goiás sobre credenciamento de despachantes e, em consequência, o decreto que a regulamentava. Trata-se de inconstitucionalidade:",["reflexa.","por arrastamento.","por omissão.","originária parcial."],1,"O decreto caiu por depender da lei invalidada (competência privativa da União, art. 22, XVI)."],
+["judiciario","A função típica do Poder Judiciário é:",["legislativa.","jurisdicional.","executiva.","fiscalizatória."],1,"Funções atípicas: legislativa (regimentos internos) e executiva (organização de serviços, licenças e férias)."],
+["judiciario","Elaborar seu regimento interno é, para um tribunal, função:",["típica jurisdicional.","atípica legislativa.","atípica executiva.","política."],1,"Slide “Poder Judiciário”: funções atípicas."],
+["judiciario","Segundo o art. 92 da CF, é órgão do Poder Judiciário:",["o Tribunal de Contas da União.","o Conselho Nacional de Justiça.","o Ministério Público.","a Advocacia-Geral da União."],1,"Art. 92, I-A. TCU, MP e AGU não integram o Judiciário."],
+["judiciario","Na ADI 3.367 (2005), o STF afirmou que o Conselho Nacional de Justiça:",["exerce função jurisdicional e pode rever decisões judiciais.","é órgão interno de controle administrativo, financeiro e disciplinar do Judiciário, sem função jurisdicional.","é órgão do Poder Executivo.","controla a atuação do próprio STF."],1,"Resumo oficial do STF. O STF não está sujeito ao controle do CNJ."],
+["judiciario","O CNJ compõe-se de:",["11 membros vitalícios.","15 membros com mandato de 2 anos, admitida uma recondução, sob a presidência do Presidente do STF.","33 membros indicados pelo STJ.","9 membros eleitos pela OAB."],1,"Art. 103-B, na redação da EC 61/2009."],
+["judiciario","No quinto constitucional (art. 94), os membros do MP e os advogados devem ter, respectivamente:",["cinco anos de carreira e cinco de atividade.","mais de dez anos de carreira e mais de dez anos de efetiva atividade profissional.","três anos de atividade jurídica cada.","quinze anos de carreira e notório saber."],1,"Os advogados também precisam de notório saber jurídico e reputação ilibada."],
+["judiciario","No procedimento do quinto constitucional:",["o tribunal forma lista sêxtupla e o Executivo escolhe em 30 dias.","as classes indicam lista sêxtupla, o tribunal forma lista tríplice e o Executivo escolhe um nome em 20 dias.","o Senado sabatina e aprova o indicado.","a OAB nomeia diretamente o desembargador."],1,"Art. 94 e parágrafo único."],
+["judiciario","O quinto constitucional do art. 94 aplica-se a:",["STF e STJ.","Tribunais Regionais Federais e Tribunais dos Estados, do DF e Territórios.","apenas Tribunais Regionais Eleitorais.","Superior Tribunal Militar."],1,"No STJ a reserva é de um terço para advogados e MP (art. 104, parágrafo único)."],
+["judiciario","A vitaliciedade do juiz de primeiro grau:",["é adquirida na posse.","é adquirida após dois anos de exercício; nesse período, a perda do cargo depende de deliberação do tribunal.","depende de aprovação do CNJ a cada cinco anos.","só se perde por decisão do Senado."],1,"Art. 95, I. Depois de vitalício, só perde o cargo por sentença judicial transitada em julgado."],
+["judiciario","A remoção de juiz contra sua vontade, por interesse público, exige:",["decisão do Presidente do tribunal.","decisão da maioria absoluta do tribunal ou do CNJ, assegurada ampla defesa.","lei específica.","aprovação da Assembleia Legislativa."],1,"Art. 95, II (inamovibilidade)."],
+["judiciario","A composição do Tribunal Superior Eleitoral está prevista no:",["art. 101 da CF.","art. 119 da CF, com no mínimo sete membros.","art. 104 da CF.","art. 123 da CF."],1,"O slide cita o art. 101 por engano; o art. 101 trata do STF. TSE: três Ministros do STF, dois do STJ e dois advogados nomeados pelo Presidente."],
+["judiciario","O Superior Tribunal Militar compõe-se de:",["11 Ministros, conforme o art. 101.","15 Ministros vitalícios (art. 123): dez oficiais-generais das três Forças e cinco civis.","27 Ministros, conforme o art. 111-A.","no mínimo 7 membros, conforme o art. 119."],1,"O slide cita o art. 104 por engano. Art. 123: três da Marinha, quatro do Exército, três da Aeronáutica e cinco civis."],
+["judiciario","Um Estado pode criar Tribunal de Justiça Militar quando:",["tiver Polícia Militar.","seu efetivo militar for superior a 20 mil integrantes.","o STM autorizar.","houver mais de cem processos militares por ano."],1,"Art. 125, §3º. Nos demais Estados, o 2º grau da Justiça Militar estadual é o próprio Tribunal de Justiça."],
+["judiciario","Após a EC 122/2022, a idade máxima para nomeação de Ministros do STF e do STJ passou a ser:",["65 anos.","70 anos.","75 anos.","não há limite."],1,"EC nº 122/2022: deu nova redação ao art. 101 (STF) e ao art. 104, parágrafo único (STJ), que passaram a exigir mais de 35 e menos de 70 anos. Também alterou os arts. 73, §1º, I, 107, 111-A, 115 e 123, parágrafo único."],
+["judiciario","Os Juizados Especiais (art. 98, I, CF) julgam:",["crimes dolosos contra a vida.","causas cíveis de menor complexidade e infrações penais de menor potencial ofensivo, com recursos julgados por turmas de juízes de primeiro grau.","ações diretas de inconstitucionalidade.","apenas causas trabalhistas."],1,"Procedimentos oral e sumaríssimo; admitida a transação nas hipóteses legais."],
+["difuso","O incidente de arguição de inconstitucionalidade, no tribunal, é inicialmente submetido pelo relator, após ouvir o MP e as partes:",["diretamente ao STF.","à turma ou câmara a que couber o conhecimento do processo.","ao Senado Federal.","ao Presidente do tribunal."],1,"Art. 948 do CPC. Se acolhida, a arguição vai ao plenário ou órgão especial (art. 949)."],
+["difuso","No incidente de arguição de inconstitucionalidade, podem manifestar-se, entre outros:",["apenas as partes do processo.","as pessoas jurídicas de direito público responsáveis pela edição do ato e os legitimados do art. 103 da CF.","somente o Ministério Público.","apenas o Senado."],1,"Art. 950, §§1º e 2º, CPC. Outros órgãos ou entidades podem ser admitidos pelo relator (§3º)."],
+["difuso","A reserva de plenário (art. 97, CF) não se aplica:",["quando órgão fracionário afasta a lei sem declarar expressamente a inconstitucionalidade.","ao juiz singular de primeiro grau.","às câmaras dos Tribunais de Justiça.","às turmas dos TRFs."],1,"O juiz de primeiro grau declara sozinho a inconstitucionalidade incidental. Afastar a lei sem declarar viola a SV 10."],
+["difuso","Na ADI 4277 e na ADPF 132 (2011), o STF deu ao art. 1.723 do Código Civil:",["declaração de inconstitucionalidade total.","interpretação conforme a Constituição, para reconhecer a união entre pessoas do mesmo sexo como entidade familiar.","efeito apenas inter partes.","status de emenda constitucional."],1,"Técnica que mantém o texto e afasta o sentido incompatível; é uma das exceções à reserva de plenário."],
+["difuso","Na decisão do controle difuso, a eficácia é, em regra:",["erga omnes e vinculante.","inter partes, podendo alcançar outros processos por repercussão geral, súmula vinculante, resolução do Senado ou pela releitura do art. 52, X.","sempre ex nunc.","restrita à Administração."],1,"Unidade de controle difuso, com a precisão técnica da versão 1.2."],
+["difuso","Depois de o STF declarar incidentalmente inconstitucional a vedação de penas restritivas no tráfico privilegiado (HC 97.256), o Senado editou:",["a Súmula Vinculante 10.","a Resolução 5/2012, suspendendo a expressão do art. 33, §4º, da Lei 11.343/2006.","uma emenda constitucional.","uma lei complementar."],1,"Exemplo do art. 52, X, CF."],
+["concentrado","A representação genérica de inconstitucionalidade, antecessora da ADI, foi instituída pela:",["Constituição de 1824.","EC 16/1965 à Constituição de 1946.","Constituição de 1934.","EC 45/2004."],1,"A Constituição de 1934 criou a representação interventiva."],
+["concentrado","São legitimados universais para a ADI, dispensados de pertinência temática:",["Governador de Estado e Mesa de Assembleia Legislativa.","Presidente da República, Mesas do Senado e da Câmara, PGR, Conselho Federal da OAB e partido político com representação no Congresso.","confederação sindical e entidade de classe de âmbito nacional.","qualquer cidadão."],1,"Art. 103, I, II, III, VI, VII e VIII."],
+["concentrado","A ADC (ação declaratória de constitucionalidade) tem por objeto:",["lei federal ou estadual.","lei ou ato normativo federal, exigindo controvérsia judicial relevante.","lei municipal.","omissão legislativa."],1,"Art. 102, I, “a”. Exemplos: ADC 19 (Lei Maria da Penha) e ADCs 43, 44 e 54 (art. 283 do CPP)."],
+["concentrado","A ADPF é cabível, entre outras hipóteses, contra:",["qualquer ato, mesmo havendo outro meio eficaz.","lei municipal e direito pré-constitucional, observada a subsidiariedade.","apenas leis federais posteriores a 1988.","decisões do Senado."],1,"Art. 4º, §1º, da Lei 9.882/1999 (subsidiariedade). Ex.: ADPF 130 (Lei de Imprensa)."],
+["concentrado","A ADI interventiva (art. 36, III, CF):",["pode ser proposta por qualquer legitimado do art. 103.","é proposta pelo PGR e é pressuposto para intervenção federal por violação a princípios sensíveis (art. 34, VII).","julga lei municipal em face da Constituição Estadual.","é proposta pelo Governador."],1,"Lei 12.562/2011."],
+["concentrado","A representação de inconstitucionalidade de lei estadual ou municipal em face da Constituição Estadual é julgada:",["pelo STF.","pelo Tribunal de Justiça (art. 125, §2º).","pelo STJ.","pela Assembleia Legislativa."],1,"O slide da aula cita o §3º, mas o dispositivo correto é o §2º do art. 125."]
+];
+
+  Q.push(...NQ);
+  /* ordena por unidade, na ordem do material */
+  const order=['teoria','sistemas','brasil','tipologia','judiciario','difuso','concentrado'];
+  Q.sort((x,y)=>order.indexOf(x[0])-order.indexOf(y[0]));
+  const names={teoria:'Teoria do controle',sistemas:'Sistemas e matrizes',brasil:'Sistema brasileiro',tipologia:'Tipologia',judiciario:'Poder Judiciário',difuso:'Controle difuso',concentrado:'Controle concentrado'};
+  Q.forEach((q,i)=>{let s=(i+3)*9301+49297;const rnd=()=>{s=(s*9301+49297)%233280;return s/233280};
+    const idx=[0,1,2,3];for(let k=3;k>0;k--){const r=Math.floor(rnd()*(k+1));[idx[k],idx[r]]=[idx[r],idx[k]]}
+    q[2]=idx.map(j=>q[2][j]);q[3]=idx.indexOf(q[3]);});
   const L='ABCD';
-  let ans=store.get('cc_ans')||{};let checked=false;let onlyMiss=false;
-  const qz=document.getElementById('quiz');
+  let ans=store.get('cc_ans2')||{};let checked=false,onlyMiss=false,filt='all';
+  const qz=document.getElementById('quiz'),sel=document.getElementById('qFilter');
+  order.forEach(k=>{const n=Q.filter(q=>q[0]===k).length;if(n){const o=document.createElement('option');o.value=k;o.textContent=names[k]+' ('+n+')';sel.appendChild(o)}});
   Q.forEach((q,i)=>{
     const d=document.createElement('div');d.className='q';d.id='q'+i;
-    let h='<div class="qn">Questão '+(i+1)+'</div><p class="st">'+q[0]+'</p>';
-    q[1].forEach((o,j)=>{h+='<label id="l'+i+'_'+j+'"><input type="radio" name="r'+i+'" id="r'+i+'_'+j+'" value="'+j+'"'+(ans[i]===j?' checked':'')+'><span><b>'+L[j]+')</b> '+o+'</span></label>'});
+    let h='<div class="qn">Questão '+(i+1)+' · '+names[q[0]]+'</div><p class="st">'+q[1]+'</p>';
+    q[2].forEach((o,j)=>{h+='<label id="l'+i+'_'+j+'"><input type="radio" name="r'+i+'" id="r'+i+'_'+j+'" value="'+j+'"'+(ans[i]===j?' checked':'')+'><span><b>'+L[j]+')</b> '+o+'</span></label>'});
     h+='<div class="exp" hidden></div>';d.innerHTML=h;qz.appendChild(d);
   });
-  qz.addEventListener('change',e=>{if(e.target.name){const i=+e.target.name.slice(1);ans[i]=+e.target.value;store.set('cc_ans',ans);if(checked)grade();else count()}});
-  function count(){document.getElementById('score').textContent=Object.keys(ans).length+' de 30 respondidas'}
+  const visible=i=>filt==='all'||Q[i][0]===filt;
+  function count(){const ids=Q.map((_,i)=>i).filter(visible);document.getElementById('score').textContent=ids.filter(i=>ans[i]!==undefined).length+' de '+ids.length+' respondidas'}
+  function layout(){Q.forEach((q,i)=>{const d=document.getElementById('q'+i);d.hidden=!visible(i)||(checked&&onlyMiss&&ans[i]===q[3])})}
   function grade(){
-    checked=true;let ok=0;
+    checked=true;let ok=0,tot=0;
     Q.forEach((q,i)=>{
-      const d=document.getElementById('q'+i);const ex=d.querySelector('.exp');
-      q[1].forEach((_,j)=>{const l=document.getElementById('l'+i+'_'+j);l.classList.remove('right','wrong');if(j===q[2])l.classList.add('right');else if(ans[i]===j)l.classList.add('wrong')});
-      const hit=ans[i]===q[2];if(hit)ok++;
-      d.classList.toggle('miss',!hit);
-      ex.hidden=false;ex.innerHTML='<b>'+(hit?'Correta.':(ans[i]===undefined?'Sem resposta.':'Incorreta.'))+' Gabarito: '+L[q[2]]+'.</b> '+q[3];
-      d.hidden=onlyMiss&&hit;
+      const d=document.getElementById('q'+i),ex=d.querySelector('.exp');
+      q[2].forEach((_,j)=>{const l=document.getElementById('l'+i+'_'+j);l.classList.remove('right','wrong');if(j===q[3])l.classList.add('right');else if(ans[i]===j)l.classList.add('wrong')});
+      const hit=ans[i]===q[3];if(visible(i)){tot++;if(hit)ok++}
+      d.classList.toggle('miss',!hit);ex.hidden=false;
+      ex.innerHTML='<b>'+(hit?'Correta.':(ans[i]===undefined?'Sem resposta.':'Incorreta.'))+' Gabarito: '+L[q[3]]+'.</b> '+q[4];
     });
-    document.getElementById('score').textContent=ok+' acertos de 30 ('+Math.round(ok/30*100)+'%)';
+    layout();
+    document.getElementById('score').textContent=ok+' acertos de '+tot+' ('+Math.round(ok/Math.max(tot,1)*100)+'%)';
     document.getElementById('missBtn').hidden=false;
   }
+  qz.addEventListener('change',e=>{if(e.target.name){const i=+e.target.name.slice(1);ans[i]=+e.target.value;store.set('cc_ans2',ans);if(checked)grade();else count()}});
+  sel.addEventListener('change',()=>{filt=sel.value;if(checked)grade();else{layout();count()}});
   document.getElementById('checkBtn').addEventListener('click',grade);
   document.getElementById('resetBtn').addEventListener('click',()=>{
-    ans={};store.set('cc_ans',ans);checked=false;onlyMiss=false;
+    ans={};store.set('cc_ans2',ans);checked=false;onlyMiss=false;
     document.querySelectorAll('#quiz input').forEach(x=>x.checked=false);
     document.querySelectorAll('#quiz label').forEach(l=>l.classList.remove('right','wrong'));
-    document.querySelectorAll('.q').forEach(d=>{d.hidden=false;d.classList.remove('miss');d.querySelector('.exp').hidden=true});
-    document.getElementById('missBtn').hidden=true;document.getElementById('missBtn').textContent='Mostrar só as erradas';count();
+    document.querySelectorAll('.q').forEach(d=>{d.classList.remove('miss');d.querySelector('.exp').hidden=true});
+    const mb=document.getElementById('missBtn');mb.hidden=true;mb.textContent='Mostrar só as erradas';layout();count();
   });
-  document.getElementById('missBtn').addEventListener('click',e=>{onlyMiss=!onlyMiss;e.target.textContent=onlyMiss?'Mostrar todas':'Mostrar só as erradas';grade()});
+  document.getElementById('missBtn').addEventListener('click',e=>{onlyMiss=!onlyMiss;e.target.textContent=onlyMiss?'Mostrar todas':'Mostrar só as erradas';layout()});
   count();
   if(location.hash){const t=document.getElementById(location.hash.slice(1));if(t)t.scrollIntoView()}
 })();

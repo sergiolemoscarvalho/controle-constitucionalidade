@@ -1,5 +1,14 @@
 # Histórico de versões
 
+## 1.6 — 26/10/2026
+Poder Judiciário e simulado ampliado.
+- Nova unidade 05, Poder Judiciário: funções, órgãos (art. 92), CNJ (ADI 3.367), estrutura da Justiça, quinto constitucional, garantias e composição dos tribunais.
+- Correções ao slide: composição do TSE no art. 119 e do STM no art. 123; atualização pela EC 122/2022 (idade máxima de 70 anos).
+- Simulado ampliado de 30 para 81 questões, com filtro por unidade.
+- Glossário com CNJ, STM, TSE, TST, TJM, TRE e TRT.
+- EC 122/2022 conferida no texto oficial da Constituição: quadro com os sete dispositivos alterados e as idades antes e depois.
+- Garantias dos juízes (art. 95) com o texto constitucional; corrigida a referência ao terço do STJ (art. 104, parágrafo único, II).
+
 ## 1.5.1 — 22/10/2026
 Conferência com os slides.
 - Completados o detalhe do art. 225, §1º, III, na ADI 4218 AgR e a observação de que só o STF desencadeia a ampliação de efeitos no controle difuso.
