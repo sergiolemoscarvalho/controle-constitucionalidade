@@ -1,5 +1,10 @@
 # Histórico de versões
 
+## 1.7 · 27/10/2026
+- Campo de busca no sumário: procura em todas as unidades, na revisão e no glossário, ignorando acentos.
+- Clique num resultado (ou use as setas e Enter) para ir direto ao trecho; atalho: tecla / para buscar e Esc para limpar.
+- Contador anônimo de acessos (GoatCounter, sem cookies e sem dados pessoais).
+
 ## 1.6 — 26/10/2026
 Poder Judiciário e simulado ampliado.
 - Nova unidade 05, Poder Judiciário: funções, órgãos (art. 92), CNJ (ADI 3.367), estrutura da Justiça, quinto constitucional, garantias e composição dos tribunais.
