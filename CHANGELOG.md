@@ -1,5 +1,11 @@
 # Histórico de versões
 
+## 1.8 · 03/11/2026
+- Citações de artigos viram links: um clique abre o texto oficial do dispositivo numa janela (Esc, × ou clique fora fecham).
+- Textos copiados do Planalto e conferidos: Constituição, Leis 9.868/1999, 9.882/1999 e 11.417/2006, CPC, CPP, Código Civil e as leis citadas nos casos (8.112/1990, 8.072/1990, 11.343/2006, 9.055/1995, 5.250/1967 e 6.880/1980).
+- Nos artigos longos da Constituição, a janela mostra o caput e os trechos citados; a íntegra fica no link oficial.
+- Links também nos comentários do simulado.
+
 ## 1.7 · 27/10/2026
 - Campo de busca no sumário: procura em todas as unidades, na revisão e no glossário, ignorando acentos.
 - Clique num resultado (ou use as setas e Enter) para ir direto ao trecho; atalho: tecla / para buscar e Esc para limpar.
