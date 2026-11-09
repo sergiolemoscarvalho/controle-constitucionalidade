@@ -1,5 +1,11 @@
 # Histórico de versões
 
+## 1.9 · 09/11/2026
+- Novo **Simulado OAB · Direito Constitucional**, com 32 questões tiradas das provas prático-profissionais do 41º ao 47º Exame, com filtro por tema e indicação da prova e do item de origem.
+- Temas: controle concentrado (ADC, ADO, ADPF, objeto e interpretação conforme), controle difuso e ações constitucionais, vícios de inconstitucionalidade, competências do Judiciário, reclamação e intervenção.
+- Gabaritos conferidos na Constituição e nas leis oficiais, com pop-up dos dispositivos; novos trechos oficiais da CF (arts. 13, 14, 22, 29, 30, 34, 35, 36, 61, 62, 63, 66, 102, 105, 109, 218 e 219-A) e das Leis 9.868/1999, 11.417/2006, 12.016/2009 e 13.300/2016.
+- As respostas do novo simulado ficam salvas separadamente das do simulado original.
+
 ## 1.8 · 03/11/2026
 - Citações de artigos viram links: um clique abre o texto oficial do dispositivo numa janela (Esc, × ou clique fora fecham).
 - Textos copiados do Planalto e conferidos: Constituição, Leis 9.868/1999, 9.882/1999 e 11.417/2006, CPC, CPP, Código Civil e as leis citadas nos casos (8.112/1990, 8.072/1990, 11.343/2006, 9.055/1995, 5.250/1967 e 6.880/1980).
